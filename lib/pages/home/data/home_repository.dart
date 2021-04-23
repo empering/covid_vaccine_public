@@ -18,7 +18,14 @@ class HomeRepository implements IHomeRepository {
 
     query['serviceKey'] = getServiceKey();
     query['cond[sido::EQ]'] = '전국';
-    query['cond[baseDate::EQ]'] = '2021-04-22 00:00:00';
+    query['cond[baseDate::GT]'] = DateTime.now()
+        .toUtc()
+        .add(Duration(hours: 9))
+        .add(Duration(days: -2))
+        .toString()
+        .split(' ')[0];
+    query['cond[baseDate::LT]'] =
+        DateTime.now().toUtc().add(Duration(hours: 9)).toString().split(' ')[0];
 
     final vaccination =
         await provider.getVaccinaion("/vaccine-stat", query: query);
