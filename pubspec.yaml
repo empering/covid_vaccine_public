@@ -12,7 +12,10 @@ dependencies:
 
   get: ^4.1.4
 
+  intl:
   freezed_annotation:
+
+  font_awesome_flutter: ^9.0.0
 
 dev_dependencies:
   flutter_test:
@@ -28,7 +31,10 @@ flutter:
 #  assets:
 #    - assets/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: BMJUA
+      fonts:
+        - asset: fonts/BMJUA_ttf.ttf
+    - family: GmarketSansBold
+      fonts:
+        - asset: fonts/GmarketSansTTFBold.ttf
