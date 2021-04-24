@@ -15,14 +15,19 @@ class HomeRepository implements IHomeRepository {
     query['serviceKey'] = provider.apiKey;
     // query['cond[sido::EQ]'] = '전국';
     query['perPage'] = '50';
-    query['cond[baseDate::GT]'] = DateTime.now()
-        .toUtc()
-        .add(Duration(hours: 9))
-        .add(Duration(days: -2))
-        .toString()
-        .split(' ')[0];
-    query['cond[baseDate::LT]'] =
-        DateTime.now().toUtc().add(Duration(hours: 9)).toString().split(' ')[0];
+    query['cond[baseDate::GTE]'] = DateTime.now()
+            .toUtc()
+            .add(Duration(hours: 9))
+            .add(Duration(days: -1))
+            .toString()
+            .split(' ')[0] +
+        ' 00:00:00';
+    query['cond[baseDate::LTE]'] = DateTime.now()
+            .toUtc()
+            .add(Duration(hours: 9))
+            .toString()
+            .split(' ')[0] +
+        ' 00:00:00';
 
     final vaccination =
         await provider.getVaccinaion("/vaccine-stat", query: query);
