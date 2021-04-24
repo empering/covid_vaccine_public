@@ -5,9 +5,14 @@ import 'package:get/get.dart';
 abstract class IHomeProvider {
   Future<Response<VaccinationModel>> getVaccinaion(String path,
       {Map<String, dynamic>? query});
+
+  String get apiKey;
 }
 
 class HomeProvider extends GetConnect implements IHomeProvider {
+  final _apiKey =
+      'Zp+l7+1MaKoJlqSFrS31s7U0vpKF2OWh117U/CEsp6yjXnK4VlL0jyeGU58oyqnUkjjEI3XIbyE/FTROydGGUQ==';
+
   @override
   void onInit() {
     httpClient.defaultDecoder =
@@ -19,4 +24,6 @@ class HomeProvider extends GetConnect implements IHomeProvider {
   Future<Response<VaccinationModel>> getVaccinaion(String path,
           {Map<String, dynamic>? query}) =>
       get(path, query: query);
+
+  String get apiKey => _apiKey;
 }

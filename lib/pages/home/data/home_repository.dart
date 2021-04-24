@@ -8,16 +8,12 @@ class HomeRepository implements IHomeRepository {
 
   final IHomeProvider provider;
 
-  getServiceKey() {
-    return 'Zp+l7+1MaKoJlqSFrS31s7U0vpKF2OWh117U/CEsp6yjXnK4VlL0jyeGU58oyqnUkjjEI3XIbyE/FTROydGGUQ==';
-  }
-
   @override
   Future<VaccinationModel> getVaccination() async {
     Map<String, dynamic> query = {};
 
-    query['serviceKey'] = getServiceKey();
-    query['cond[sido::EQ]'] = '전국';
+    query['serviceKey'] = provider.apiKey;
+    // query['cond[sido::EQ]'] = '전국';
     query['cond[baseDate::GT]'] = DateTime.now()
         .toUtc()
         .add(Duration(hours: 9))
