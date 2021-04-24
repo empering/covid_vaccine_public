@@ -85,7 +85,12 @@ class HomeView extends GetView<HomeController> {
                         top: -25,
                         child: Card(
                           color: AppColor.accent,
-                          shape: StadiumBorder(),
+                          shape: StadiumBorder(
+                            side: BorderSide(
+                              color: AppColor.background,
+                              width: 2,
+                            ),
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 25.0,
@@ -129,7 +134,11 @@ class HomeView extends GetView<HomeController> {
                                 ],
                               ),
                             ),
-                            Divider(color: AppColor.background, height: 30),
+                            Divider(
+                              color: AppColor.background,
+                              height: 30,
+                              thickness: 2,
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: Column(
@@ -220,7 +229,12 @@ class HomeView extends GetView<HomeController> {
                         top: -25,
                         child: Card(
                           color: AppColor.primary,
-                          shape: StadiumBorder(),
+                          shape: StadiumBorder(
+                            side: BorderSide(
+                              color: AppColor.background,
+                              width: 2,
+                            ),
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 25.0,
@@ -264,7 +278,11 @@ class HomeView extends GetView<HomeController> {
                                 ],
                               ),
                             ),
-                            Divider(color: AppColor.background, height: 30),
+                            Divider(
+                              color: AppColor.background,
+                              height: 30,
+                              thickness: 2,
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(left: 20.0),
                               child: Column(
