@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:covid_vaccine/pages/home/domain/entity/sido.dart';
 import 'package:covid_vaccine/shared/const/app_color.dart';
+import 'package:covid_vaccine/shared/widget/app_card.dart';
 import 'package:covid_vaccine/shared/widget/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -73,289 +74,28 @@ class HomeView extends GetView<HomeController> {
                   color: AppColor.primary,
                   height: 50,
                 ),
-                Card(
-                  color: AppColor.primary,
-                  margin: const EdgeInsets.all(10.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                AppCard(
+                  headerWidget: _buildCardHeader(),
+                  bodyWidget: _buildCardBody(
+                    datum.totalFirstCnt,
+                    datum.firstCnt,
+                    datum.accumulatedFirstCnt,
                   ),
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Positioned(
-                        right: 25,
-                        top: -25,
-                        child: Card(
-                          color: AppColor.accent,
-                          shape: StadiumBorder(
-                            side: BorderSide(
-                              color: AppColor.background,
-                              width: 2,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 25.0,
-                              vertical: 10.0,
-                            ),
-                            child: Text(
-                              '1차 접종',
-                              style: TextStyle(
-                                color: AppColor.background,
-                                fontSize: 20.0,
-                                fontFamily: 'GmarketSansBold',
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 25, 0, 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    '당일누적 ',
-                                    style: TextStyle(
-                                      color: AppColor.light,
-                                      fontSize: 30.0,
-                                    ),
-                                  ),
-                                  Text(
-                                    '= 전일접종 + 전일누적',
-                                    style: TextStyle(
-                                      color: AppColor.background,
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Divider(
-                              color: AppColor.background,
-                              height: 30,
-                              thickness: 2,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.totalFirstCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.light,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명',
-                                        style: TextStyle(
-                                          color: AppColor.light,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        ' = ',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.firstCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명 + ',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.accumulatedFirstCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                  lableWidget: _buildCardLable('1차 접종'),
                 ),
                 Divider(
                   color: AppColor.primary,
                   height: 50,
                 ),
-                Card(
-                  color: AppColor.accent,
-                  margin: const EdgeInsets.all(10.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                AppCard(
+                  headerWidget: _buildCardHeader(),
+                  bodyWidget: _buildCardBody(
+                    datum.totalSecondCnt,
+                    datum.secondCnt,
+                    datum.accumulatedSecondCnt,
                   ),
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Positioned(
-                        right: 25,
-                        top: -25,
-                        child: Card(
-                          color: AppColor.primary,
-                          shape: StadiumBorder(
-                            side: BorderSide(
-                              color: AppColor.background,
-                              width: 2,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 25.0,
-                              vertical: 10.0,
-                            ),
-                            child: Text(
-                              '2차 접종',
-                              style: TextStyle(
-                                color: AppColor.background,
-                                fontSize: 20.0,
-                                fontFamily: 'GmarketSansBold',
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 25, 0, 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    '당일누적 ',
-                                    style: TextStyle(
-                                      color: AppColor.light,
-                                      fontSize: 30.0,
-                                    ),
-                                  ),
-                                  Text(
-                                    '= 전일접종 + 전일누적',
-                                    style: TextStyle(
-                                      color: AppColor.background,
-                                      fontSize: 20.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Divider(
-                              color: AppColor.background,
-                              height: 30,
-                              thickness: 2,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.totalSecondCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.light,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명',
-                                        style: TextStyle(
-                                          color: AppColor.light,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        ' = ',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.secondCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명 + ',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        '${NumberFormat.decimalPattern().format(datum.accumulatedSecondCnt)}',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 30.0,
-                                        ),
-                                      ),
-                                      Text(
-                                        ' 명',
-                                        style: TextStyle(
-                                          color: AppColor.background,
-                                          fontSize: 20.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                  lableWidget: _buildCardLable('2차 접종'),
+                  isPrimaryColor: false,
                 ),
               ],
             );
@@ -378,6 +118,105 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
         )
+      ],
+    );
+  }
+
+  _buildCardLable(String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: AppColor.background,
+        fontSize: 20.0,
+        fontFamily: 'GmarketSansBold',
+      ),
+    );
+  }
+
+  _buildCardHeader() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          '당일누적 ',
+          style: TextStyle(
+            color: AppColor.light,
+            fontSize: 30.0,
+          ),
+        ),
+        Text(
+          '= 전일접종 + 전일누적',
+          style: TextStyle(
+            color: AppColor.background,
+            fontSize: 20.0,
+          ),
+        ),
+      ],
+    );
+  }
+
+  _buildCardBody(num totalFirstCnt, num firstCnt, num accumulatedFirstCnt) {
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              '${NumberFormat.decimalPattern().format(totalFirstCnt)}',
+              style: TextStyle(
+                color: AppColor.light,
+                fontSize: 30.0,
+              ),
+            ),
+            Text(
+              ' 명',
+              style: TextStyle(
+                color: AppColor.light,
+                fontSize: 20.0,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              ' = ',
+              style: TextStyle(
+                color: AppColor.background,
+                fontSize: 20.0,
+              ),
+            ),
+            Text(
+              '${NumberFormat.decimalPattern().format(firstCnt)}',
+              style: TextStyle(
+                color: AppColor.background,
+                fontSize: 30.0,
+              ),
+            ),
+            Text(
+              ' 명 + ',
+              style: TextStyle(
+                color: AppColor.background,
+                fontSize: 20.0,
+              ),
+            ),
+            Text(
+              '${NumberFormat.decimalPattern().format(accumulatedFirstCnt)}',
+              style: TextStyle(
+                color: AppColor.background,
+                fontSize: 30.0,
+              ),
+            ),
+            Text(
+              ' 명',
+              style: TextStyle(
+                color: AppColor.background,
+                fontSize: 20.0,
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
