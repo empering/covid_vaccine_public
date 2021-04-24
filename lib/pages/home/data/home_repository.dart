@@ -14,6 +14,7 @@ class HomeRepository implements IHomeRepository {
 
     query['serviceKey'] = provider.apiKey;
     // query['cond[sido::EQ]'] = '전국';
+    query['perPage'] = '50';
     query['cond[baseDate::GT]'] = DateTime.now()
         .toUtc()
         .add(Duration(hours: 9))
