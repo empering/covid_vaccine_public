@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:covid_vaccine/pages/home/domain/entity/sido.dart';
 import 'package:covid_vaccine/shared/const/app_color.dart';
 import 'package:covid_vaccine/shared/widget/app_text_button.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,8 @@ class HomeView extends GetView<HomeController> {
       body: Center(
         child: controller.obx(
           (state) {
-            final datum = state!.data.last;
+            final datum = state!.data
+                .lastWhere((d) => d.sido == Sido.getSidoName(SidoEnum.ALL));
 
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
