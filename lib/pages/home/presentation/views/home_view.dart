@@ -15,12 +15,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Covid-19 예방접종 현황',
-        ),
-        centerTitle: true,
-      ),
       body: Center(
         child: controller.obx(
           (state) {
@@ -102,23 +96,23 @@ class HomeView extends GetView<HomeController> {
           },
         ),
       ),
-      persistentFooterButtons: [
-        OutlinedButton(
-          onPressed: () {
-            Get.toNamed('/home/country');
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              '상세보기',
-              style: TextStyle(
-                color: AppColor.background,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        )
-      ],
+      // persistentFooterButtons: [
+      //   OutlinedButton(
+      //     onPressed: () {
+      //       Get.toNamed('/home/country');
+      //     },
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(10.0),
+      //       child: Text(
+      //         '상세보기',
+      //         style: TextStyle(
+      //           color: AppColor.background,
+      //           fontWeight: FontWeight.bold,
+      //         ),
+      //       ),
+      //     ),
+      //   )
+      // ],
     );
   }
 
