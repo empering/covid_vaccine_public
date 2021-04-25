@@ -1,5 +1,5 @@
 import 'package:covid_vaccine/pages/app.dart';
-import 'package:covid_vaccine/pages/app/binding/AppBinding.dart';
+import 'package:covid_vaccine/pages/app/binding/app_binding.dart';
 import 'package:get/get.dart';
 
 import '../pages/home/presentation/views/country_view.dart';
