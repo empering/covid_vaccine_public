@@ -2,8 +2,9 @@ import 'package:covid_vaccine/core/models/enum/sido.dart';
 import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_card.dart';
-import 'package:covid_vaccine/ui/widget/app_text_button.dart';
+import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -46,8 +47,8 @@ class VaccinationView extends GetView<VaccinationController> {
                     ),
                     AppTextButton(
                       isIconFirst: false,
-                      labelText: '자세히',
-                      labelIcon: FaIcon(FontAwesomeIcons.arrowRight),
+                      label: '자세히',
+                      icon: FaIcon(FontAwesomeIcons.arrowRight),
                       onPressed: () {
                         Get.toNamed('/home/country');
                       },
@@ -87,56 +88,20 @@ class VaccinationView extends GetView<VaccinationController> {
         },
       ),
       persistentFooterButtons: [
-        OutlinedButton(
+        AppOutlinedButton(
+          label: '지역별',
+          icon: AppIcon(icon: FontAwesomeIcons.mapMarkerAlt),
           onPressed: () {
             Get.toNamed('/vaccination/sido');
           },
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Wrap(
-              spacing: 10.0,
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.mapMarkerAlt,
-                  size: Sizes.sm,
-                  color: AppColors.background,
-                ),
-                Text(
-                  '지역별',
-                  style: TextStyle(
-                    color: AppColors.background,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ),
-        OutlinedButton(
+        AppOutlinedButton(
+          label: '백신별',
+          icon: AppIcon(icon: FontAwesomeIcons.syringe),
+          backgroundColor: AppColors.accent,
           onPressed: () {
             Get.toNamed('/vaccination/sido');
           },
-          style: OutlinedButton.styleFrom(backgroundColor: AppColors.accent),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Wrap(
-              spacing: 10.0,
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.syringe,
-                  size: Sizes.sm,
-                  color: AppColors.background,
-                ),
-                Text(
-                  '백신별',
-                  style: TextStyle(
-                    color: AppColors.background,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ),
       ],
     );
