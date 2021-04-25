@@ -1,19 +1,16 @@
-import 'package:covid_vaccine/pages/home/domain/entity/vaccination_model.dart';
+import 'package:covid_vaccine/core/data/repository/app_repository.dart';
+import 'package:covid_vaccine/core/models/entity/vaccination_model.dart';
 import 'package:get/get.dart';
 
-import '../../domain/adapters/repository_adapter.dart';
+class VaccinationController extends SuperController<VaccinationModel> {
+  VaccinationController({required this.vaccinationRepository});
 
-class HomeController extends SuperController<VaccinationModel> {
-  HomeController({required this.homeRepository});
-
-  final IHomeRepository homeRepository;
+  final AppRepository<VaccinationModel> vaccinationRepository;
 
   @override
   void onInit() {
     super.onInit();
-    print('???');
-    //Loading, Success, Error handle with 1 line of code
-    append(() => homeRepository.getVaccination);
+    append(() => vaccinationRepository.fetchData);
   }
 
   @override

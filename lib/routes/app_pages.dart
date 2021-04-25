@@ -1,10 +1,8 @@
-import 'package:covid_vaccine/pages/app.dart';
-import 'package:covid_vaccine/pages/app/binding/app_binding.dart';
+import 'package:covid_vaccine/core/binding/app_binding.dart';
+import 'package:covid_vaccine/pages/app/views/app_view.dart';
+import 'package:covid_vaccine/pages/vaccination/views/vaccination_detail_view.dart';
+import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:get/get.dart';
-
-import '../pages/home/presentation/views/country_view.dart';
-import '../pages/home/presentation/views/details_view.dart';
-import '../pages/home/presentation/views/home_view.dart';
 
 part 'app_routes.dart';
 
@@ -15,23 +13,17 @@ class AppPages {
   static final routes = [
     GetPage(
       name: Routes.APP,
-      page: () => App(),
+      page: () => AppView(),
       binding: AppBinding(),
       children: [
         GetPage(
-          name: Routes.HOME,
-          page: () => HomeView(),
+          name: Routes.VACCINATION,
+          page: () => VaccinationView(),
           // binding: HomeBinding(),
           children: [
             GetPage(
-              name: Routes.COUNTRY,
-              page: () => CountryView(),
-              children: [
-                GetPage(
-                  name: Routes.DETAILS,
-                  page: () => DetailsView(),
-                ),
-              ],
+              name: Routes.SIDO,
+              page: () => VaccinationDetailView(),
             ),
           ],
         ),

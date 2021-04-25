@@ -1,11 +1,10 @@
 import 'dart:ui';
 
+import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
-
-class CountryView extends GetView<HomeController> {
+class VaccinationDetailView extends GetView<VaccinationController> {
   @override
   Widget build(BuildContext context) {
     return Container(

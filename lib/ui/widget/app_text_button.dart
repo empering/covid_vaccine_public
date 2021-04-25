@@ -1,4 +1,4 @@
-import 'package:covid_vaccine/shared/const/app_color.dart';
+import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextButton extends StatelessWidget {
@@ -12,7 +12,7 @@ class AppTextButton extends StatelessWidget {
 
   AppTextButton({
     this.buttonColor = Colors.transparent,
-    this.labelColor = AppColor.primary,
+    this.labelColor = AppColors.primary,
     this.labelIcon,
     this.labelText,
     this.onPressed,

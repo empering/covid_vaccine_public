@@ -1,66 +1,72 @@
-import 'package:covid_vaccine/shared/const/app_color.dart';
+import 'package:covid_vaccine/ui/theme/app_colors.dart';
+import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppCard extends StatelessWidget {
   final Widget headerWidget;
   final Widget bodyWidget;
-  final Widget lableWidget;
+  final Widget labelWidget;
   final bool isPrimaryColor;
 
   AppCard({
     required this.headerWidget,
     required this.bodyWidget,
-    required this.lableWidget,
+    required this.labelWidget,
     this.isPrimaryColor = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: isPrimaryColor ? AppColor.primary : AppColor.accent,
-      margin: const EdgeInsets.all(10.0),
+      color: isPrimaryColor ? AppColors.primary : AppColors.accent,
+      margin: const EdgeInsets.fromLTRB(
+        Insets.sm,
+        Insets.sm + 15,
+        Insets.sm,
+        Insets.sm,
+      ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: Corners.lgBorderRadius,
       ),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Positioned(
-            right: 25,
-            top: -25,
+            right: Insets.sm + 15,
+            top: -(Insets.sm + 15),
             child: Card(
-              color: AppColor.accent,
+              color: AppColors.accent,
               shape: StadiumBorder(
                 side: BorderSide(
-                  color: AppColor.background,
+                  color: AppColors.background,
                   width: 2,
                 ),
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 25.0,
-                  vertical: 10.0,
+                  horizontal: Insets.sm + 15,
+                  vertical: Insets.sm,
                 ),
-                child: lableWidget,
+                child: labelWidget,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 25, 0, 20),
+            padding: const EdgeInsets.fromLTRB(0, Insets.sm + 15, 0, Insets.md),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding: const EdgeInsets.only(left: Insets.md),
                   child: headerWidget,
                 ),
                 Divider(
-                  color: AppColor.background,
-                  height: 30,
+                  color: AppColors.background,
+                  height: Insets.lg,
                   thickness: 2,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding: const EdgeInsets.only(left: Insets.md),
                   child: bodyWidget,
                 ),
               ],

@@ -1,15 +1,14 @@
-import 'package:covid_vaccine/pages/home/domain/entity/vaccination_model.dart';
+import 'package:covid_vaccine/core/data/api/api_provider.dart';
+import 'package:covid_vaccine/core/data/repository/app_repository.dart';
+import 'package:covid_vaccine/core/models/entity/vaccination_model.dart';
 
-import '../domain/adapters/repository_adapter.dart';
-import 'home_api_provider.dart';
+class VaccinationRepository implements AppRepository<VaccinationModel> {
+  VaccinationRepository({required this.provider});
 
-class HomeRepository implements IHomeRepository {
-  HomeRepository({required this.provider});
-
-  final IHomeProvider provider;
+  final ApiProvider<VaccinationModel> provider;
 
   @override
-  Future<VaccinationModel> getVaccination() async {
+  Future<VaccinationModel> fetchData() async {
     Map<String, dynamic> query = {};
 
     query['serviceKey'] = provider.apiKey;
@@ -29,14 +28,11 @@ class HomeRepository implements IHomeRepository {
             .split(' ')[0] +
         ' 00:00:00';
 
-    final vaccination =
-        await provider.getVaccinaion("/vaccine-stat", query: query);
+    final vaccination = await provider.fetchData("/vaccine-stat", query: query);
 
     if (vaccination.status.hasError) {
-      print(vaccination.statusText);
       return Future.error(vaccination.statusText!);
     } else {
-      print(vaccination.body);
       return vaccination.body!;
     }
   }

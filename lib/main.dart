@@ -1,6 +1,6 @@
 import 'package:covid_vaccine/lang/translation_service.dart';
 import 'package:covid_vaccine/routes/app_pages.dart';
-import 'package:covid_vaccine/shared/const/app_color.dart';
+import 'package:covid_vaccine/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,50 +20,7 @@ class MyApp extends StatelessWidget {
       locale: TranslationService.locale,
       fallbackLocale: TranslationService.fallbackLocale,
       // translations: TranslationService(),
-      theme: ThemeData(
-        primaryColor: AppColor.primary,
-        accentColor: AppColor.accent,
-        backgroundColor: AppColor.background,
-        scaffoldBackgroundColor: AppColor.background,
-        canvasColor: AppColor.background,
-        fontFamily: 'BMJUA',
-        appBarTheme: AppBarTheme(
-          backgroundColor: AppColor.primary,
-        ),
-        textTheme: TextTheme(
-          headline1: TextStyle(
-            color: AppColor.primary,
-            fontSize: 35.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'GmarketSansBold',
-          ),
-          subtitle1: TextStyle(
-            color: AppColor.primary,
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'GmarketSansBold',
-          ),
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(color: AppColor.accent),
-        ).apply(
-          bodyColor: AppColor.primary
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            primary: AppColor.primary,
-          ),
-        ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            side: BorderSide(
-              color: AppColor.primary,
-              width: 2,
-            ),
-            backgroundColor: AppColor.primary,
-            shape: StadiumBorder(),
-          ),
-        ),
-      ),
+      theme: AppThemes.themeData,
     );
   }
 }
