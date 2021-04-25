@@ -1,6 +1,6 @@
 import 'package:covid_vaccine/core/binding/app_binding.dart';
 import 'package:covid_vaccine/pages/app/views/app_view.dart';
-import 'package:covid_vaccine/pages/vaccination/views/vaccination_detail_view.dart';
+import 'package:covid_vaccine/pages/vaccination/views/vaccination_sido_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:get/get.dart';
 

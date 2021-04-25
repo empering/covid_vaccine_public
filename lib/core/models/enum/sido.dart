@@ -4,7 +4,7 @@ enum SidoEnum {
   BUSAN,
   DAEGU,
   INCHEON,
-  GWANJU,
+  GWANGJU,
   DAEJEON,
   ULSAN,
   SEJONG,
@@ -39,7 +39,7 @@ class Sido {
       case SidoEnum.INCHEON:
         sidoName = '인천광역시';
         break;
-      case SidoEnum.GWANJU:
+      case SidoEnum.GWANGJU:
         sidoName = '광주광역시';
         break;
       case SidoEnum.DAEJEON:
@@ -94,5 +94,16 @@ class Sido {
     });
 
     return sidoEnum;
+  }
+
+  static String getSidoEngName(String sidoName) {
+    var sidoEnum = SidoEnum.ETC;
+    SidoEnum.values.forEach((s) {
+      if (getSidoName(s) == sidoName) {
+        sidoEnum = s;
+      }
+    });
+
+    return sidoEnum.toString().split('.')[1].toLowerCase();
   }
 }
