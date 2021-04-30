@@ -95,20 +95,31 @@ class VaccinationView extends GetView<VaccinationController> {
         },
       ),
       persistentFooterButtons: [
-        AppOutlinedButton(
-          label: '지역별',
-          icon: AppIcon(icon: FontAwesomeIcons.mapMarkerAlt),
-          onPressed: () {
-            Get.toNamed('/vaccination/sido');
-          },
-        ),
-        AppOutlinedButton(
-          label: '백신별',
-          icon: AppIcon(icon: FontAwesomeIcons.syringe),
-          backgroundColor: AppColors.accent,
-          onPressed: () {
-            Get.toNamed('/vaccination/sido');
-          },
+        Container(
+          height: Sizes.xxl,
+          width: MediaQuery.of(context).copyWith().size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              AppOutlinedButton(
+                label: '지역별',
+                icon: FontAwesomeIcons.mapMarkerAlt,
+                size: Sizes.xs,
+                onPressed: () {
+                  Get.toNamed('/vaccination/sido');
+                },
+              ),
+              AppOutlinedButton(
+                label: '백신별',
+                icon: FontAwesomeIcons.syringe,
+                size: Sizes.xs,
+                backgroundColor: AppColors.accent,
+                onPressed: () {
+                  Get.toNamed('/vaccination/sido');
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -148,8 +159,22 @@ class VaccinationView extends GetView<VaccinationController> {
               style: TextStyles.lightXl,
             ),
             Text(
-              ' 명',
+              '명',
               style: TextStyle(color: AppColors.light),
+            ),
+            VerticalDivider(),
+            CircleAvatar(
+              radius: Sizes.xlRadius,
+              backgroundColor: AppColors.background,
+              child: AppIcon(
+                icon: FontAwesomeIcons.syringe,
+                size: Sizes.md,
+                color: AppColors.primary,
+              ),
+            ),
+            Text(
+              ' ${NumberFormat.decimalPercentPattern(decimalDigits: 2).format(totalFirstCnt / 51829023)}',
+              style: TextStyles.lightXl,
             ),
           ],
         ),
@@ -165,7 +190,7 @@ class VaccinationView extends GetView<VaccinationController> {
               style: TextStyles.backgroundXl,
             ),
             Text(
-              ' 명 + ',
+              '명 + ',
               style: TextStyle(color: AppColors.background),
             ),
             Text(
@@ -173,7 +198,7 @@ class VaccinationView extends GetView<VaccinationController> {
               style: TextStyles.backgroundXl,
             ),
             Text(
-              ' 명',
+              '명',
               style: TextStyle(color: AppColors.background),
             ),
           ],

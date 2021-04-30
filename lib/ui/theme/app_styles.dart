@@ -16,6 +16,14 @@ class Sizes {
   static const sm = 20.0;
   static const xs = 16.0;
   static const xxs = 12.0;
+
+  static get xxlRadius => xxl / 2;
+  static get xlRadius => xl / 2;
+  static get lgRadius => lg / 2;
+  static get mdRadius => md / 2;
+  static get smRadius => sm / 2;
+  static get xsRadius => xs / 2;
+  static get xxsRadius => xxs / 2;
 }
 
 class TextStyles {

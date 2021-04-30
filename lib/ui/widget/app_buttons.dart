@@ -1,12 +1,14 @@
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:flutter/material.dart';
 
 class AppOutlinedButton extends StatelessWidget {
   final String label;
-  final Widget? icon;
+  final IconData? icon;
   final Color color;
   final Color? backgroundColor;
+  final double? size;
   final VoidCallback? onPressed;
 
   AppOutlinedButton({
@@ -14,6 +16,7 @@ class AppOutlinedButton extends StatelessWidget {
     this.icon,
     this.color = AppColors.background,
     this.backgroundColor,
+    this.size,
     this.onPressed,
   });
 
@@ -30,6 +33,7 @@ class AppOutlinedButton extends StatelessWidget {
       style: TextStyle(
         color: AppColors.background,
         fontWeight: FontWeight.bold,
+        fontSize: size,
       ),
     );
 
@@ -38,7 +42,10 @@ class AppOutlinedButton extends StatelessWidget {
         : Wrap(
             spacing: Insets.sm,
             children: [
-              icon!,
+              AppIcon(
+                icon: icon!,
+                size: size,
+              ),
               textLabel,
             ],
           );

@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppIcon extends StatelessWidget {
   final IconData icon;
-  final double size;
+  final double? size;
   final Color color;
 
   AppIcon({
