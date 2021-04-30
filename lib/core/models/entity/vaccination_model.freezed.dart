@@ -186,17 +186,17 @@ class __$VaccinationModelCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_VaccinationModel implements _VaccinationModel {
+@JsonSerializable()
+class _$_VaccinationModel extends _VaccinationModel {
   _$_VaccinationModel(
       {required this.currentCount,
       required this.data,
       required this.matchCount,
       required this.page,
       required this.perPage,
-      required this.totalCount});
+      required this.totalCount})
+      : super._();
 
   factory _$_VaccinationModel.fromJson(Map<String, dynamic> json) =>
       _$_$_VaccinationModelFromJson(json);
@@ -262,7 +262,7 @@ class _$_VaccinationModel implements _VaccinationModel {
   }
 }
 
-abstract class _VaccinationModel implements VaccinationModel {
+abstract class _VaccinationModel extends VaccinationModel {
   factory _VaccinationModel(
       {required int currentCount,
       required List<Vaccination> data,
@@ -270,6 +270,7 @@ abstract class _VaccinationModel implements VaccinationModel {
       required int page,
       required int perPage,
       required int totalCount}) = _$_VaccinationModel;
+  _VaccinationModel._() : super._();
 
   factory _VaccinationModel.fromJson(Map<String, dynamic> json) =
       _$_VaccinationModel.fromJson;
@@ -494,10 +495,9 @@ class __$VaccinationCopyWithImpl<$Res> extends _$VaccinationCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
-class _$_Vaccination implements _Vaccination {
+@JsonSerializable()
+class _$_Vaccination extends _Vaccination {
   _$_Vaccination(
       {required this.accumulatedFirstCnt,
       required this.accumulatedSecondCnt,
@@ -506,7 +506,8 @@ class _$_Vaccination implements _Vaccination {
       required this.secondCnt,
       required this.sido,
       required this.totalFirstCnt,
-      required this.totalSecondCnt});
+      required this.totalSecondCnt})
+      : super._();
 
   factory _$_Vaccination.fromJson(Map<String, dynamic> json) =>
       _$_$_VaccinationFromJson(json);
@@ -585,7 +586,7 @@ class _$_Vaccination implements _Vaccination {
   }
 }
 
-abstract class _Vaccination implements Vaccination {
+abstract class _Vaccination extends Vaccination {
   factory _Vaccination(
       {required int accumulatedFirstCnt,
       required int accumulatedSecondCnt,
@@ -595,6 +596,7 @@ abstract class _Vaccination implements Vaccination {
       required String sido,
       required int totalFirstCnt,
       required int totalSecondCnt}) = _$_Vaccination;
+  _Vaccination._() : super._();
 
   factory _Vaccination.fromJson(Map<String, dynamic> json) =
       _$_Vaccination.fromJson;

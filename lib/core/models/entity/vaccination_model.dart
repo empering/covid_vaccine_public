@@ -5,6 +5,8 @@ part 'vaccination_model.g.dart';
 
 @freezed
 class VaccinationModel with _$VaccinationModel {
+  VaccinationModel._();
+
   factory VaccinationModel({
     required int currentCount,
     required List<Vaccination> data,
@@ -20,6 +22,8 @@ class VaccinationModel with _$VaccinationModel {
 
 @freezed
 class Vaccination with _$Vaccination {
+  Vaccination._();
+
   factory Vaccination({
     required int accumulatedFirstCnt,
     required int accumulatedSecondCnt,
@@ -33,4 +37,11 @@ class Vaccination with _$Vaccination {
 
   factory Vaccination.fromJson(Map<String, dynamic> json) =>
       _$VaccinationFromJson(json);
+
+  String dateString() {
+    var year = baseDate.year;
+    var month = baseDate.month.toString().padLeft(2, '0');
+    var day = baseDate.day - 1;
+    return '$year. $month. $day.';
+  }
 }

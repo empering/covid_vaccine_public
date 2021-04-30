@@ -41,8 +41,7 @@ class VaccinationView extends GetView<VaccinationController> {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(left: Insets.xxl),
-                        child: Text(
-                            '(${datum.baseDate.month}.${datum.baseDate.day - 1}. 24시 기준)'),
+                        child: Text('(${datum.dateString()} 24시 기준)'),
                       ),
                     ),
                     AppTextButton(

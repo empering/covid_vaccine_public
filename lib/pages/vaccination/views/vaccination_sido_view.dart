@@ -18,12 +18,16 @@ class VaccinationDetailView extends GetView<VaccinationController> {
       body: Center(
         child: controller.obx(
           (state) {
+            var startIndex = state!.data.lastIndexWhere((d) => d.sido == '전국');
+            var datum = state.data[startIndex];
+            var data = state.data.sublist(startIndex + 1);
+
             return Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: Insets.md),
                   child: Text(
-                    '2021-04-25 기준',
+                    '${datum.dateString()} 기준',
                     style: TextStyles.sans.copyWith(fontSize: Sizes.lg),
                   ),
                 ),
@@ -32,7 +36,7 @@ class VaccinationDetailView extends GetView<VaccinationController> {
                   height: Insets.md,
                 ),
                 Expanded(
-                  child: buildListView(state!),
+                  child: buildListView(data),
                 )
               ],
             );
@@ -42,10 +46,7 @@ class VaccinationDetailView extends GetView<VaccinationController> {
     );
   }
 
-  buildListView(VaccinationModel model) {
-    var startIndex = model.data.lastIndexWhere((d) => d.sido == '전국');
-    var data = model.data.sublist(startIndex + 1);
-
+  buildListView(List<Vaccination> data) {
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
