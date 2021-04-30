@@ -1,3 +1,4 @@
+import 'package:covid_vaccine/pages/center/views/center_view.dart';
 import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
@@ -13,11 +14,7 @@ class _AppViewState extends State<AppView> {
   int pageIndex = 0;
   var pages = [
     VaccinationView(),
-    Container(
-      child: Center(
-        child: Text('접종센터'),
-      ),
-    ),
+    CenterView(),
     InformationView(),
     Container(
       child: Center(

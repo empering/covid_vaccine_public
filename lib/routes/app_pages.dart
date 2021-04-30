@@ -1,5 +1,6 @@
 import 'package:covid_vaccine/core/binding/app_binding.dart';
 import 'package:covid_vaccine/pages/app/views/app_view.dart';
+import 'package:covid_vaccine/pages/center/views/center_view.dart';
 import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_sido_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
@@ -26,6 +27,10 @@ class AppPages {
               page: () => VaccinationDetailView(),
             ),
           ],
+        ),
+        GetPage(
+          name: Routes.CENTER,
+          page: () => CenterView(),
         ),
         GetPage(
           name: Routes.INFORMATION,
