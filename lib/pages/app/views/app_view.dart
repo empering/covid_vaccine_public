@@ -1,3 +1,4 @@
+import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,7 @@ class _AppViewState extends State<AppView> {
         child: Text('접종센터'),
       ),
     ),
-    Container(
-      child: Center(
-        child: Text('접종정보'),
-      ),
-    ),
+    InformationView(),
     Container(
       child: Center(
         child: Text('위기대처'),
