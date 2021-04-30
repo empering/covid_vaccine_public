@@ -35,7 +35,7 @@ class VaccinationView extends GetView<VaccinationController> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: Insets.sm),
                 child: Row(
                   children: [
                     Expanded(
@@ -59,28 +59,36 @@ class VaccinationView extends GetView<VaccinationController> {
                 color: AppColors.primary,
                 height: Insets.md,
               ),
-              AppCard(
-                headerWidget: _buildCardHeader(),
-                bodyWidget: _buildCardBody(
-                  datum.totalFirstCnt,
-                  datum.firstCnt,
-                  datum.accumulatedFirstCnt,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Wrap(
+                    children: [
+                      AppCard(
+                        headerWidget: _buildCardHeader(),
+                        bodyWidget: _buildCardBody(
+                          datum.totalFirstCnt,
+                          datum.firstCnt,
+                          datum.accumulatedFirstCnt,
+                        ),
+                        labelWidget: _buildCardLable('1차 접종'),
+                      ),
+                      Divider(
+                        color: Colors.transparent,
+                        height: Insets.sm,
+                      ),
+                      AppCard(
+                        headerWidget: _buildCardHeader(),
+                        bodyWidget: _buildCardBody(
+                          datum.totalSecondCnt,
+                          datum.secondCnt,
+                          datum.accumulatedSecondCnt,
+                        ),
+                        labelWidget: _buildCardLable('2차 접종'),
+                        isPrimaryColor: false,
+                      ),
+                    ],
+                  ),
                 ),
-                labelWidget: _buildCardLable('1차 접종'),
-              ),
-              Divider(
-                color: AppColors.primary,
-                height: Insets.sm,
-              ),
-              AppCard(
-                headerWidget: _buildCardHeader(),
-                bodyWidget: _buildCardBody(
-                  datum.totalSecondCnt,
-                  datum.secondCnt,
-                  datum.accumulatedSecondCnt,
-                ),
-                labelWidget: _buildCardLable('2차 접종'),
-                isPrimaryColor: false,
               ),
             ],
           );

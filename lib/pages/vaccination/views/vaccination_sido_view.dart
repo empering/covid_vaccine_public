@@ -120,7 +120,7 @@ class VaccinationDetailView extends GetView<VaccinationController> {
               Expanded(
                 flex: 7,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 60),
+                  padding: const EdgeInsets.only(right: Insets.xl),
                   child: Text(
                     '${NumberFormat.decimalPattern().format(vaccination.accumulatedFirstCnt)} 명',
                     textAlign: TextAlign.right,
@@ -142,7 +142,7 @@ class VaccinationDetailView extends GetView<VaccinationController> {
               Expanded(
                 flex: 7,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 60),
+                  padding: const EdgeInsets.only(right: Insets.xl),
                   child: Text(
                     '${NumberFormat.decimalPattern().format(vaccination.accumulatedSecondCnt)} 명',
                     textAlign: TextAlign.right,
