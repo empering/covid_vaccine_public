@@ -21,6 +21,12 @@ class MyApp extends StatelessWidget {
       fallbackLocale: TranslationService.fallbackLocale,
       // translations: TranslationService(),
       theme: AppThemes.themeData,
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: child!,
+        );
+      },
     );
   }
 }
