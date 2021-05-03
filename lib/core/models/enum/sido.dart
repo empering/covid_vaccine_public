@@ -97,13 +97,17 @@ class Sido {
   }
 
   static String getSidoEngName(String sidoName) {
-    var sidoEnum = SidoEnum.ETC;
-    SidoEnum.values.forEach((s) {
-      if (getSidoName(s) == sidoName) {
-        sidoEnum = s;
-      }
-    });
+    return getSidoEnum(sidoName).toString().split('.')[1].toLowerCase();
+  }
 
-    return sidoEnum.toString().split('.')[1].toLowerCase();
+  static String getSidoShortName(String sidoName) {
+    var sidoShortName = sidoName.substring(0, 2);
+    if (sidoShortName == '충청' ||
+        sidoShortName == '경상' ||
+        sidoShortName == '전라') {
+      sidoShortName = sidoShortName.substring(0, 1) + sidoName.substring(2, 3);
+    }
+
+    return sidoShortName;
   }
 }
