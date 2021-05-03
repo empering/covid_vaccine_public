@@ -2,6 +2,8 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   static const APP = '/';
+  static const DETAIL = '/detail';
+
   static const VACCINATION = '/vaccination';
   static const SIDO = '/sido';
 

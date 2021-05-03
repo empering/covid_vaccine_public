@@ -56,9 +56,9 @@ class CenterView extends GetView<CenterController> {
             ],
           ),
           child: ListTile(
-            // onTap: () {
-            //   Get.toNamed('/home/country/details', arguments: vaccination);
-            // },
+            onTap: () {
+              Get.toNamed('/center/detail', arguments: center);
+            },
             leading: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
