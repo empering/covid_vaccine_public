@@ -4,7 +4,6 @@ import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_card.dart';
-import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -162,19 +161,15 @@ class VaccinationView extends GetView<VaccinationController> {
               '명',
               style: TextStyle(color: AppColors.light),
             ),
-            VerticalDivider(),
-            CircleAvatar(
-              radius: Sizes.xlRadius,
-              backgroundColor: AppColors.background,
-              child: AppIcon(
-                icon: FontAwesomeIcons.syringe,
-                size: Sizes.md,
-                color: AppColors.primary,
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.only(right: Insets.md),
+                child: Text(
+                  ' ${NumberFormat.decimalPercentPattern(decimalDigits: 2).format(totalFirstCnt / 51829023)}',
+                  style: TextStyles.lightXl,
+                ),
               ),
-            ),
-            Text(
-              ' ${NumberFormat.decimalPercentPattern(decimalDigits: 2).format(totalFirstCnt / 51829023)}',
-              style: TextStyles.lightXl,
             ),
           ],
         ),
