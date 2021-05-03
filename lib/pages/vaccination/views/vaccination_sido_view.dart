@@ -87,12 +87,14 @@ class VaccinationDetailView extends GetView<VaccinationController> {
             // onTap: () {
             //   Get.toNamed('/home/country/details', arguments: vaccination);
             // },
-            trailing: CircleAvatar(
-              backgroundColor: AppColors.light,
-              backgroundImage: vaccination.sido == '기타'
-                  ? null
-                  : AssetImage(
-                      'assets/sido/${Sido.getSidoEngName(vaccination.sido)}.png'),
+            trailing: Material(
+              elevation: 10.0,
+              shape: CircleBorder(),
+              child: Image(
+                image: AssetImage(
+                  'assets/sido/${Sido.getSidoEngName(vaccination.sido)}.png',
+                ),
+              ),
             ),
             title: Text(vaccination.sido),
             subtitle: buildSubtitle(vaccination),
