@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'center_model.freezed.dart';
 part 'center_model.g.dart';
@@ -20,6 +21,8 @@ class CenterModel with _$CenterModel {
 
 @freezed
 class VaccinationCenter with _$VaccinationCenter {
+  VaccinationCenter._();
+
   factory VaccinationCenter({
     required String address,
     required String centerName,
@@ -36,6 +39,10 @@ class VaccinationCenter with _$VaccinationCenter {
 
   factory VaccinationCenter.fromJson(Map<String, dynamic> json) =>
       _$VaccinationCenterFromJson(json);
+
+  String getDetailAddress() {
+    return address.replaceAll('$sido $sigungu ', '');
+  }
 }
 
 enum CenterType {

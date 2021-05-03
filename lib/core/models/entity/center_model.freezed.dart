@@ -540,7 +540,7 @@ class __$VaccinationCenterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VaccinationCenter implements _VaccinationCenter {
+class _$_VaccinationCenter extends _VaccinationCenter {
   _$_VaccinationCenter(
       {required this.address,
       required this.centerName,
@@ -552,7 +552,8 @@ class _$_VaccinationCenter implements _VaccinationCenter {
       required this.org,
       required this.sido,
       required this.sigungu,
-      required this.zipCode});
+      required this.zipCode})
+      : super._();
 
   factory _$_VaccinationCenter.fromJson(Map<String, dynamic> json) =>
       _$_$_VaccinationCenterFromJson(json);
@@ -644,7 +645,7 @@ class _$_VaccinationCenter implements _VaccinationCenter {
   }
 }
 
-abstract class _VaccinationCenter implements VaccinationCenter {
+abstract class _VaccinationCenter extends VaccinationCenter {
   factory _VaccinationCenter(
       {required String address,
       required String centerName,
@@ -657,6 +658,7 @@ abstract class _VaccinationCenter implements VaccinationCenter {
       required String sido,
       required String sigungu,
       required String zipCode}) = _$_VaccinationCenter;
+  _VaccinationCenter._() : super._();
 
   factory _VaccinationCenter.fromJson(Map<String, dynamic> json) =
       _$_VaccinationCenter.fromJson;
