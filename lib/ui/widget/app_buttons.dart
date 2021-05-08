@@ -31,7 +31,7 @@ class AppOutlinedButton extends StatelessWidget {
     var textLabel = Text(
       label,
       style: TextStyle(
-        color: AppColors.background,
+        color: color,
         fontWeight: FontWeight.bold,
         fontSize: size,
       ),
@@ -45,6 +45,7 @@ class AppOutlinedButton extends StatelessWidget {
               AppIcon(
                 icon: icon!,
                 size: size,
+                color: color,
               ),
               textLabel,
             ],

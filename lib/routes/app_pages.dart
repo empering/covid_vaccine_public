@@ -29,12 +29,16 @@ class AppPages {
             ),
           ],
         ),
-        GetPage(name: Routes.CENTER, page: () => CenterView(), children: [
-          GetPage(
-            name: Routes.DETAIL,
-            page: () => CenterDetailView(),
-          )
-        ]),
+        GetPage(
+          name: Routes.CENTER,
+          page: () => CenterView(),
+          children: [
+            GetPage(
+              name: Routes.DETAIL,
+              page: () => CenterDetailView(),
+            )
+          ],
+        ),
         GetPage(
           name: Routes.INFORMATION,
           page: () => InformationView(),

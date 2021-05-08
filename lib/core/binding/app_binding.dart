@@ -7,6 +7,7 @@ import 'package:covid_vaccine/core/data/repository/vaccination_repository.dart';
 import 'package:covid_vaccine/core/models/entity/center_model.dart';
 import 'package:covid_vaccine/core/models/entity/vaccination_model.dart';
 import 'package:covid_vaccine/pages/information/controller/center_controller.dart';
+import 'package:covid_vaccine/pages/information/views/controllers/infomation_controller.dart';
 import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
 import 'package:get/get.dart';
 
@@ -22,5 +23,7 @@ class AppBinding extends Bindings {
     Get.lazyPut<AppRepository<CenterModel>>(
         () => CenterRepository(provider: Get.find()));
     Get.lazyPut(() => CenterController(centerRepository: Get.find()));
+
+    Get.lazyPut(() => InformationController());
   }
 }
