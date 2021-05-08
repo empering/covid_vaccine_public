@@ -45,7 +45,7 @@ class _AppViewState extends State<AppView> {
         items: [
           BottomNavigationBarItem(
             backgroundColor: AppColors.primary,
-            icon: FaIcon(FontAwesomeIcons.home),
+            icon: FaIcon(FontAwesomeIcons.chartLine),
             label: '접종현황',
           ),
           BottomNavigationBarItem(
@@ -53,12 +53,12 @@ class _AppViewState extends State<AppView> {
             label: '접종센터',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.info),
+            icon: FaIcon(FontAwesomeIcons.infoCircle),
             label: '접종정보',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.ambulance),
-            label: '위기대처',
+            icon: FaIcon(FontAwesomeIcons.exclamationTriangle),
+            label: '접종후대처',
           ),
         ],
       ),
