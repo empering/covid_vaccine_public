@@ -45,13 +45,13 @@ class InformationSchedule extends StatelessWidget {
               children: [
                 AppTextWithIcon(
                   content: '전 국민이 코로나19 예방접종 대상입니다.',
-                  textColor: AppColors.primary.withOpacity(0.8),
+                  textColor: AppColors.accent,
                   textSize: Sizes.sm,
                 ),
                 AppTextWithIcon(
                   content:
                       '다만, 예방접종 순서는 백신 도입 및 공급, 접종 상황(접종률), 백신별 임상 결과 등을 고려하여 우선접종 권장대상부터 접종하고, 순차적으로 예방접종 대상자를 확대할 예정입니다.',
-                  textColor: AppColors.primary.withOpacity(0.8),
+                  textColor: Colors.black54,
                   textSize: Sizes.sm,
                 ),
               ],
@@ -78,19 +78,19 @@ class InformationSchedule extends StatelessWidget {
                 AppTextWithIcon(
                   content:
                       '이미 확보한 백신을 최대한 효율적,효과적으로 활용하여, 더 빠른 속도로, 더 많은 국민에게 접종 실시하고자 1차 접종자를 최대한 확대 하여 접종합니다.',
-                  textColor: AppColors.primary.withOpacity(0.8),
+                  textColor: Colors.black54,
                   textSize: Sizes.sm,
                 ),
                 AppTextWithIcon(
                   content:
                       '2분기에는 요양병원,요양시설 65세 이상 입원,입소자 및 종사자, 코로나19 취약시설 입소자 및 종사자, 65세이상 어르신, 학교 및 돌봄공간, 만성질환자(만성신장질환, 만성중증호흡기질환), 보건의료인과 사회필수인력을 대상으로 접종을 실시합니다.',
-                  textColor: AppColors.primary.withOpacity(0.8),
+                  textColor: Colors.black54,
                   textSize: Sizes.sm,
                 ),
                 AppTextWithIcon(
                   content:
                       '추가적으로, 고등학교 3학년 학생과 교사 등에 대해 안정적 학교교육, 대학별고사(논술,면접)와 수능 등 전국 이동에 따른 전파확산 위험과 방역부담 등을 고려하여 접종을 결정하였고, 학사일정 및 백신수급 일정 등을 고려하여 추진할 예정입니다.',
-                  textColor: AppColors.primary.withOpacity(0.8),
+                  textColor: Colors.black54,
                   textSize: Sizes.sm,
                 ),
                 Divider(),
