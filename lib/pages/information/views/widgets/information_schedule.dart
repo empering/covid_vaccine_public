@@ -1,4 +1,4 @@
-import 'package:covid_vaccine/pages/information/views/controllers/infomation_controller.dart';
+import 'package:covid_vaccine/pages/information/controller/information_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_table.dart';
@@ -138,7 +138,7 @@ class InformationSchedule extends StatelessWidget {
               child: _cell(
                 text: '65세 이상 입원, 입소자 및 종사자',
                 vaccine: '아스트라제네카',
-                vaccnation: '자체 / 방문',
+                vaccination: '자체 / 방문',
               ),
             ),
           ],
@@ -157,12 +157,12 @@ class InformationSchedule extends StatelessWidget {
                   _cell(
                     text: '노인시설, 75세 이상 어르신',
                     vaccine: '화이자',
-                    vaccnation: '예방접종센터',
+                    vaccination: '예방접종센터',
                   ),
                   _cell(
                     text: '특수교육 종사자 및 유,초중등 보건교사\n- 어린이집 장애아전문 교직원 및 간호인력',
                     vaccine: '아스트라제네카',
-                    vaccnation: '보건소',
+                    vaccination: '보건소',
                   ),
                 ],
               ),
@@ -183,12 +183,12 @@ class InformationSchedule extends StatelessWidget {
                   _cell(
                     text: '장애인 시설',
                     vaccine: '아스트라제네카',
-                    vaccnation: '방문(위탁)',
+                    vaccination: '방문(위탁)',
                   ),
                   _cell(
                     text: '교정시설 등 종사자',
                     vaccine: '아스트라제네카',
-                    vaccnation: '자체 / 보건소',
+                    vaccination: '자체 / 보건소',
                   ),
                 ],
               ),
@@ -209,12 +209,12 @@ class InformationSchedule extends StatelessWidget {
                   _cell(
                     text: '노인요양공동생활가정',
                     vaccine: '아스트라제네카',
-                    vaccnation: '방문(위탁)',
+                    vaccination: '방문(위탁)',
                   ),
                   _cell(
                     text: '결핵 및 한센인 거주시설',
                     vaccine: '아스트라제네카',
-                    vaccnation: '방문(보건소)',
+                    vaccination: '방문(보건소)',
                   ),
                 ],
               ),
@@ -233,7 +233,7 @@ class InformationSchedule extends StatelessWidget {
               child: _cell(
                 text: '노숙인 거주 및 이용시설',
                 vaccine: '아스트라제네카',
-                vaccnation: '방문(보건소)',
+                vaccination: '방문(보건소)',
               ),
             ),
           ],
@@ -252,12 +252,12 @@ class InformationSchedule extends StatelessWidget {
                   _cell(
                     text: '항공승무원',
                     vaccine: '아스트라제네카',
-                    vaccnation: '보건소 등',
+                    vaccination: '보건소 등',
                   ),
                   _cell(
                     text: '65~74세 어르신',
                     vaccine: '아스트라제네카',
-                    vaccnation: '위탁의료기관',
+                    vaccination: '위탁의료기관',
                   ),
                 ],
               ),
@@ -282,7 +282,7 @@ class InformationSchedule extends StatelessWidget {
                     '\n- 의료기관 및 약국 종사자 (보건의료인)' +
                     '\n- 사회필수인력 (경찰, 해경, 소방, 군인 등)',
                 vaccine: '아스트라제네카',
-                vaccnation: '위탁의료기관',
+                vaccination: '위탁의료기관',
               ),
             ),
           ],
@@ -294,7 +294,7 @@ class InformationSchedule extends StatelessWidget {
   _cell({
     required String text,
     required String vaccine,
-    required String vaccnation,
+    required String vaccination,
   }) {
     return Container(
       padding: EdgeInsets.all(Insets.xs),
@@ -326,7 +326,7 @@ class InformationSchedule extends StatelessWidget {
                 ),
                 SizedBox(width: Insets.sm),
                 Text(
-                  vaccnation,
+                  vaccination,
                   style: TextStyle(
                     fontSize: Sizes.xxs,
                     color: Colors.black54,

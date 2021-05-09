@@ -1,4 +1,4 @@
-import 'package:covid_vaccine/pages/information/views/controllers/infomation_controller.dart';
+import 'package:covid_vaccine/pages/information/controller/information_controller.dart';
 import 'package:covid_vaccine/pages/information/views/widgets/information_schedule.dart';
 import 'package:covid_vaccine/pages/information/views/widgets/information_vaccination.dart';
 import 'package:covid_vaccine/pages/information/views/widgets/information_vaccine.dart';

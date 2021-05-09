@@ -1,4 +1,4 @@
-import 'package:covid_vaccine/pages/information/views/controllers/infomation_controller.dart';
+import 'package:covid_vaccine/pages/information/controller/information_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_table.dart';
