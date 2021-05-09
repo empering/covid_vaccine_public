@@ -3,6 +3,7 @@ import 'package:covid_vaccine/pages/app/views/app_view.dart';
 import 'package:covid_vaccine/pages/center/views/center_detail_view.dart';
 import 'package:covid_vaccine/pages/center/views/center_view.dart';
 import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
+import 'package:covid_vaccine/pages/side_effect/views/side_effect_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_sido_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:get/get.dart';
@@ -42,6 +43,10 @@ class AppPages {
         GetPage(
           name: Routes.INFORMATION,
           page: () => InformationView(),
+        ),
+        GetPage(
+          name: Routes.SIDE_EFFECT,
+          page: () => SideEffectView(),
         ),
       ],
     ),

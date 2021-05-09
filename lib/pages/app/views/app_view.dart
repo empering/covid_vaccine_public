@@ -1,5 +1,6 @@
 import 'package:covid_vaccine/pages/center/views/center_view.dart';
 import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
+import 'package:covid_vaccine/pages/side_effect/views/side_effect_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +17,7 @@ class _AppViewState extends State<AppView> {
     VaccinationView(),
     CenterView(),
     InformationView(),
-    Container(
-      child: Center(
-        child: Text('위기대처'),
-      ),
-    ),
+    SideEffectView(),
   ];
 
   @override

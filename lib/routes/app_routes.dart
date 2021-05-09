@@ -10,4 +10,6 @@ abstract class Routes {
   static const CENTER = '/center';
 
   static const INFORMATION = '/information';
+
+  static const SIDE_EFFECT = '/sideEffect';
 }
