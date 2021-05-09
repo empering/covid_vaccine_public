@@ -1,4 +1,7 @@
 import 'package:covid_vaccine/pages/side_effect/controller/side_effect_controller.dart';
+import 'package:covid_vaccine/pages/side_effect/views/widgets/side_effect_action.dart';
+import 'package:covid_vaccine/pages/side_effect/views/widgets/side_effect_kind.dart';
+import 'package:covid_vaccine/pages/side_effect/views/widgets/side_effect_thrombosis.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_buttons.dart';
@@ -71,17 +74,17 @@ class SideEffectView extends StatelessWidget {
           Obx(
             () {
               var sideEffectType = controller.sideEffectType;
-              var panleIndex = controller.panelIndex.value;
+              var panelIndex = controller.panelIndex.value;
               var listViewChild;
               switch (sideEffectType.value) {
                 case SideEffectType.KIND:
-                  listViewChild = Container();
+                  listViewChild = SideEffectKind(index: panelIndex);
                   break;
                 case SideEffectType.THROMBOSIS:
-                  listViewChild = Container();
+                  listViewChild = SideEffectThrombosis(index: panelIndex);
                   break;
                 case SideEffectType.ACTION:
-                  listViewChild = Container();
+                  listViewChild = SideEffectAction(index: panelIndex);
                   break;
               }
 
