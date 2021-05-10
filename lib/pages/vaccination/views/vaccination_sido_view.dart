@@ -3,9 +3,7 @@ import 'package:covid_vaccine/core/models/enum/sido.dart';
 import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
-import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -45,22 +43,22 @@ class VaccinationDetailView extends GetView<VaccinationController> {
           },
         ),
       ),
-      persistentFooterButtons: [
-        Container(
-          height: Sizes.md,
-          width: MediaQuery.of(context).copyWith().size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              AppIcon(
-                icon: FontAwesomeIcons.handPointUp,
-                color: AppColors.primary,
-              ),
-              Text('지역별 현황을 눌러서 상세정보를 확인하세요!'),
-            ],
-          ),
-        )
-      ],
+      // persistentFooterButtons: [
+      //   Container(
+      //     height: Sizes.md,
+      //     width: MediaQuery.of(context).copyWith().size.width,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: [
+      //         AppIcon(
+      //           icon: FontAwesomeIcons.handPointUp,
+      //           color: AppColors.primary,
+      //         ),
+      //         Text('지역별 현황을 눌러서 상세정보를 확인하세요!'),
+      //       ],
+      //     ),
+      //   )
+      // ],
     );
   }
 

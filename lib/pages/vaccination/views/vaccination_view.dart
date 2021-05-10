@@ -43,14 +43,14 @@ class VaccinationView extends GetView<VaccinationController> {
                         child: Text('(${datum.dateString()} 24시 기준)'),
                       ),
                     ),
-                    AppTextButton(
-                      isIconFirst: false,
-                      label: '자세히',
-                      icon: FaIcon(FontAwesomeIcons.arrowRight),
-                      onPressed: () {
-                        Get.toNamed('/home/country');
-                      },
-                    )
+                    // AppTextButton(
+                    //   isIconFirst: false,
+                    //   label: '자세히',
+                    //   icon: FaIcon(FontAwesomeIcons.arrowRight),
+                    //   onPressed: () {
+                    //     Get.toNamed('/home/country');
+                    //   },
+                    // ),
                   ],
                 ),
               ),
@@ -114,7 +114,10 @@ class VaccinationView extends GetView<VaccinationController> {
                 size: Sizes.xs,
                 backgroundColor: AppColors.accent,
                 onPressed: () {
-                  Get.toNamed('/vaccination/sido');
+                  Get.defaultDialog(
+                    title: '이런..',
+                    middleText: '아직 준비중이에요..',
+                  );
                 },
               ),
             ],
