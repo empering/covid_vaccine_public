@@ -7,6 +7,8 @@ class CenterController extends SuperController<CenterModel> {
 
   CenterController({required this.centerRepository});
 
+  var panelIsExpanded = false.obs;
+
   @override
   void onInit() {
     super.onInit();

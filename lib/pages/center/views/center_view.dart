@@ -12,10 +12,17 @@ class CenterView extends GetView<CenterController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: controller.obx((state) {
-          return buildListView(state!.data);
-        }),
+      body: Column(
+        children: [
+          Obx(() {
+            return _buildSearchBar(controller.panelIsExpanded.value);
+          }),
+          Expanded(
+            child: controller.obx((state) {
+              return _buildListView(state!.data);
+            }),
+          ),
+        ],
       ),
       persistentFooterButtons: [
         Container(
@@ -36,7 +43,36 @@ class CenterView extends GetView<CenterController> {
     );
   }
 
-  buildListView(List<VaccinationCenter> data) {
+  _buildSearchBar(panelIsExpanded) {
+    return ExpansionPanelList(
+      expansionCallback: (panelIndex, isExpanded) {
+        controller.panelIsExpanded.value = !isExpanded;
+      },
+      elevation: 0,
+      dividerColor: Colors.transparent,
+      expandedHeaderPadding: EdgeInsets.zero,
+      animationDuration: Duration(milliseconds: 500),
+      children: [
+        ExpansionPanel(
+          headerBuilder: (context, isExpanded) {
+            return ListTile(
+              leading: AppIcon(
+                icon: FontAwesomeIcons.searchLocation,
+                color: AppColors.primary,
+              ),
+              title: Text('검색'),
+            );
+          },
+          backgroundColor: AppColors.background,
+          canTapOnHeader: true,
+          isExpanded: panelIsExpanded,
+          body: Text('111'),
+        )
+      ],
+    );
+  }
+
+  _buildListView(List<VaccinationCenter> data) {
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
