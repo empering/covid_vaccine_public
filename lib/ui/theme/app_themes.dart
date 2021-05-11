@@ -41,6 +41,12 @@ class AppThemes {
         alignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
       ),
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: AppColors.enabled,
+        ),
+        focusedBorder: UnderlineInputBorder(),
+      ),
     );
   }
 }
