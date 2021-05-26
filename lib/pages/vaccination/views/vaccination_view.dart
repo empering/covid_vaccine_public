@@ -32,27 +32,7 @@ class VaccinationView extends GetView<VaccinationController> {
                   '예방접종 현황',
                   style: TextStyles.h1,
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: Insets.sm),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: Insets.xxl),
-                        child: Text('(${datum.dateString()} 24시 기준)'),
-                      ),
-                    ),
-                    // AppTextButton(
-                    //   isIconFirst: false,
-                    //   label: '자세히',
-                    //   icon: FaIcon(FontAwesomeIcons.arrowRight),
-                    //   onPressed: () {
-                    //     Get.toNamed('/home/country');
-                    //   },
-                    // ),
-                  ],
-                ),
+                subtitle: Text('(${datum.dateString()} 24시 기준)'),
               ),
               Divider(
                 color: AppColors.primary,
@@ -108,18 +88,18 @@ class VaccinationView extends GetView<VaccinationController> {
                   Get.toNamed('/vaccination/sido');
                 },
               ),
-              AppOutlinedButton(
-                label: '백신별',
-                icon: FontAwesomeIcons.syringe,
-                size: Sizes.xs,
-                backgroundColor: AppColors.accent,
-                onPressed: () {
-                  Get.defaultDialog(
-                    title: '이런..',
-                    middleText: '아직 준비중이에요..',
-                  );
-                },
-              ),
+              // AppOutlinedButton(
+              //   label: '백신별',
+              //   icon: FontAwesomeIcons.syringe,
+              //   size: Sizes.xs,
+              //   backgroundColor: AppColors.accent,
+              //   onPressed: () {
+              //     Get.defaultDialog(
+              //       title: '이런..',
+              //       middleText: '아직 준비중이에요..',
+              //     );
+              //   },
+              // ),
             ],
           ),
         ),

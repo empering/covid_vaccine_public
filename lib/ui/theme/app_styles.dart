@@ -31,7 +31,7 @@ class TextStyles {
   static const sans = const TextStyle(fontFamily: Fonts.gSansBold);
 
   static TextStyle get h1 => sans.copyWith(
-        fontSize: Sizes.xxl,
+        fontSize: Sizes.xl,
         fontWeight: FontWeight.bold,
         color: AppColors.primary,
       );
