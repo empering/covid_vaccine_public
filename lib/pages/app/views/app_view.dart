@@ -27,13 +27,18 @@ class _AppViewState extends State<AppView> {
     SideEffectView(),
   ];
 
+  var pagesTitle = [
+    '코로나 19 예방접종 현황',
+    '코로나 19 예방접종 기관',
+    '코로나 19 예방접종 정보',
+    '코로나 19 예방접종 후 대처법',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          '안전 백신 정보 Plus',
-        ),
+        title: Text(pagesTitle[pageIndex]),
         centerTitle: true,
       ),
       body: pages[pageIndex],
