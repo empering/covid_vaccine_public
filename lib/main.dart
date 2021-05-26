@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: '안전 백신 정보 Plus',
       debugShowCheckedModeBanner: false,
       // enableLog: true,
       // logWriterCallback: Logger.write,

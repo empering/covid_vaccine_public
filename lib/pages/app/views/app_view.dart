@@ -32,7 +32,7 @@ class _AppViewState extends State<AppView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Covid-19 예방접종 현황',
+          '안전 백신 정보 Plus',
         ),
         centerTitle: true,
       ),
@@ -119,7 +119,7 @@ class _AppViewState extends State<AppView> {
         onTap: () {
           final RenderBox box = context.findRenderObject() as RenderBox;
           Share.share(
-            'Covid-19 예방접종 현황',
+            '안전 백신 정보 Plus',
             subject:
                 'https://play.google.com/store/apps/details?id=kr.co.azzu.covid_vaccine',
             sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
@@ -147,7 +147,7 @@ class _AppViewState extends State<AppView> {
                     ),
                   ),
                   Text(
-                    'Covid-19\n예방접종 현황',
+                    '안전 백신 정보\nPlus',
                     style: TextStyles.h1.copyWith(color: AppColors.background),
                     textAlign: TextAlign.center,
                   ),
