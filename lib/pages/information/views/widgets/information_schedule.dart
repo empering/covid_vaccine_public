@@ -1,11 +1,13 @@
 import 'package:covid_vaccine/pages/information/controller/information_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_table.dart';
 import 'package:covid_vaccine/ui/widget/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class InformationSchedule extends StatelessWidget {
   final index;
@@ -95,6 +97,39 @@ class InformationSchedule extends StatelessWidget {
                 ),
                 Divider(),
                 _buildTable(),
+              ],
+            ),
+          ),
+        ),
+        ExpansionPanel(
+          headerBuilder: (context, isExpanded) {
+            return ListTile(
+              title: AppTextWithIcon(
+                content: '예방접종 사전예약 기간',
+                icon: FontAwesomeIcons.solidQuestionCircle,
+                textColor: AppColors.accent,
+              ),
+            );
+          },
+          backgroundColor: AppColors.background,
+          canTapOnHeader: true,
+          isExpanded: index == 2,
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: AppOutlinedButton(
+                    label: '예방접종 예약하기',
+                    icon: FontAwesomeIcons.arrowAltCircleRight,
+                    size: Sizes.xs,
+                    onPressed: () {
+                      launch('https://ncvr.kdca.go.kr/cobk/index.html');
+                    },
+                  ),
+                ),
+                _buildSchduleTable(),
               ],
             ),
           ),
@@ -336,6 +371,86 @@ class InformationSchedule extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  _buildSchduleTable() {
+    return Table(
+      border: TableBorder.all(color: Colors.grey),
+      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+      columnWidths: const <int, TableColumnWidth>{
+        0: FixedColumnWidth(150),
+        1: FlexColumnWidth(),
+      },
+      children: [
+        TableRow(
+          children: [
+            AppTableCell(
+              text: '예약기간',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: Colors.black54,
+            ),
+            AppTableCell(
+              text: '대상자',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: AppColors.accent,
+            ),
+          ],
+        ),
+        TableRow(
+          children: [
+            AppTableCell(
+              text: '2021.05.06. ~ 06.03.',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: Colors.black45,
+              isFirstCell: true,
+            ),
+            TableCell(
+              child: _schduleCell('70~74세 (1947~1951년),\n만성호흡기장애인\n'),
+            ),
+          ],
+        ),
+        TableRow(
+          children: [
+            AppTableCell(
+              text: '2021.05.10. ~ 06.03.',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: Colors.black45,
+              isFirstCell: true,
+            ),
+            TableCell(
+              child: _schduleCell('\n65~69세 (1952~1956년)\n'),
+            ),
+          ],
+        ),
+        TableRow(
+          children: [
+            AppTableCell(
+              text: '2021.05.13. ~ 06.03.',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: Colors.black45,
+              isFirstCell: true,
+            ),
+            TableCell(
+              child: _schduleCell(
+                  '60~64세 (1957~1961년)\n어린이집/유치원/초등1,2교사등\n조기접종 대상자 중 미접종자'),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  _schduleCell(String text) {
+    return Container(
+      padding: EdgeInsets.all(Insets.xs),
+      child: Text(
+        '$text',
+        style: TextStyle(
+          fontSize: Sizes.xs,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
