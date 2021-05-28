@@ -8,6 +8,7 @@ abstract class Routes {
   static const SIDO = '/sido';
 
   static const CENTER = '/center';
+  static const INSTITUTION = '/institution';
 
   static const INFORMATION = '/information';
 

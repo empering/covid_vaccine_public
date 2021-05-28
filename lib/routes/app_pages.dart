@@ -2,6 +2,8 @@ import 'package:covid_vaccine/core/binding/app_binding.dart';
 import 'package:covid_vaccine/pages/app/views/app_view.dart';
 import 'package:covid_vaccine/pages/center/views/center_detail_view.dart';
 import 'package:covid_vaccine/pages/center/views/center_view.dart';
+import 'package:covid_vaccine/pages/center/views/institution_detail_view.dart';
+import 'package:covid_vaccine/pages/center/views/institution_view.dart';
 import 'package:covid_vaccine/pages/information/views/infomation_view.dart';
 import 'package:covid_vaccine/pages/side_effect/views/side_effect_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_sido_view.dart';
@@ -37,6 +39,16 @@ class AppPages {
             GetPage(
               name: Routes.DETAIL,
               page: () => CenterDetailView(),
+            )
+          ],
+        ),
+        GetPage(
+          name: Routes.INSTITUTION,
+          page: () => InstitutionView(),
+          children: [
+            GetPage(
+              name: Routes.DETAIL,
+              page: () => InstitutionDetailView(),
             )
           ],
         ),

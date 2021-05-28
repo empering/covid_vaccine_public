@@ -1,21 +1,25 @@
-import 'package:covid_vaccine/core/models/entity/center_model.dart';
-import 'package:covid_vaccine/core/models/enum/sido.dart';
-import 'package:covid_vaccine/pages/center/controller/center_controller.dart';
+import 'package:covid_vaccine/core/models/entity/institution_model.dart';
+import 'package:covid_vaccine/pages/center/controller/institution_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:covid_vaccine/ui/widget/app_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:search_choices/search_choices.dart';
 
-class CenterView extends GetView<CenterController> {
+class InstitutionView extends StatelessWidget {
+  final controller = Get.find<InstitutionController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('코로나 19 예방접종 기관'),
+        centerTitle: true,
+      ),
       body: Column(
         children: [
           Padding(
@@ -28,17 +32,17 @@ class CenterView extends GetView<CenterController> {
                   label: '예방접종센터',
                   icon: FontAwesomeIcons.mapMarkerAlt,
                   size: Sizes.xs,
-                  backgroundColor: AppColors.primary,
-                  onPressed: () {},
+                  backgroundColor: AppColors.accent.withOpacity(0.75),
+                  onPressed: () {
+                    Get.back();
+                  },
                 ),
                 AppOutlinedButton(
                   label: '참여의료기관',
                   icon: FontAwesomeIcons.mapMarkerAlt,
                   size: Sizes.xs,
-                  backgroundColor: AppColors.accent.withOpacity(0.75),
-                  onPressed: () {
-                    Get.toNamed('/institution');
-                  },
+                  backgroundColor: AppColors.primary,
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -47,8 +51,8 @@ class CenterView extends GetView<CenterController> {
             return _buildSearchBar(controller.panelIsExpanded.value);
           }),
           Expanded(
-            child: controller.obx((state) {
-              return _buildListView(state!.data);
+            child: Obx(() {
+              return _buildListView(controller.institutions);
             }),
           ),
         ],
@@ -99,35 +103,67 @@ class CenterView extends GetView<CenterController> {
             padding: const EdgeInsets.symmetric(horizontal: Insets.md),
             child: Column(
               children: [
-                SearchChoices.single(
-                  items: controller.sidoDropdownValues
-                      .map<DropdownMenuItem<String>>((sidoName) {
-                    return DropdownMenuItem(
-                      value: sidoName,
-                      child: Text(
-                        sidoName,
-                        style: TextStyle(
-                          color: AppColors.enabled,
-                          fontSize: Sizes.sm,
-                        ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: SearchChoices.single(
+                        items: controller.sidoDropdownValues
+                            .map<DropdownMenuItem<String>>((sido) {
+                          return DropdownMenuItem(
+                            value: sido['sidoCode'],
+                            child: Text(
+                              sido['sidoName']!,
+                              style: TextStyle(
+                                color: AppColors.enabled,
+                                fontSize: Sizes.sm,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        value: controller.sidoValue.value,
+                        hint: '광역시도 선택',
+                        searchHint: '광역시, 도명을 입력하세요',
+                        isExpanded: true,
+                        style: TextStyles.base.copyWith(fontSize: Sizes.sm),
+                        underline: Container(),
+                        onChanged: (newValue) {
+                          controller.sidoValue.value = newValue ?? '';
+                        },
                       ),
-                    );
-                  }).toList(),
-                  hint: '지역선택',
-                  searchHint: '지역명을 입력하세요',
-                  isExpanded: true,
-                  style: TextStyles.base.copyWith(fontSize: Sizes.sm),
-                  underline: Container(),
-                  onChanged: (newValue) {
-                    controller.sidoValue.value = newValue;
-                  },
+                    ),
+                    Expanded(
+                      child: SearchChoices.single(
+                        items: controller.sigugunDropdownValues
+                            .map<DropdownMenuItem<String>>((sigugun) {
+                          return DropdownMenuItem(
+                            value: sigugun.ditord,
+                            child: Text(
+                              sigugun.sidditnam,
+                              style: TextStyle(
+                                color: AppColors.enabled,
+                                fontSize: Sizes.sm,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        hint: '시군구선택',
+                        searchHint: '시, 군, 구명을 입력하세요',
+                        isExpanded: true,
+                        style: TextStyles.base.copyWith(fontSize: Sizes.sm),
+                        underline: Container(),
+                        onChanged: (newValue) {
+                          controller.sigugunValue.value = newValue;
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: Insets.sm),
                   child: Builder(builder: (context) {
                     return TextField(
                       decoration: InputDecoration(
-                        hintText: '검색할 주소를 입력하세요.',
+                        hintText: '검색할 주소/기관명을 입력하세요.',
                         hintStyle: TextStyle(color: AppColors.disabled),
                         alignLabelWithHint: true,
                       ),
@@ -141,7 +177,7 @@ class CenterView extends GetView<CenterController> {
                       },
                       onEditingComplete: () {
                         FocusScope.of(context).unfocus();
-                        controller.filterCenter();
+                        controller.filterInstitution();
                       },
                     );
                   }),
@@ -154,12 +190,12 @@ class CenterView extends GetView<CenterController> {
     );
   }
 
-  _buildListView(List<VaccinationCenter> data) {
+  _buildListView(List<InstitutionModel> data) {
     if (data.length == 0) {
       return Padding(
         padding: const EdgeInsets.all(30),
         child: AppTextWithIcon(
-          content: '검색된 예방접종센터가 없습니다.',
+          content: '검색된 참여의료기관이 없습니다.',
           icon: FontAwesomeIcons.exclamationTriangle,
         ),
       );
@@ -168,7 +204,7 @@ class CenterView extends GetView<CenterController> {
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
-        final center = data[index];
+        final institution = data[index];
         return Container(
           padding: const EdgeInsets.symmetric(vertical: Insets.sm),
           margin: const EdgeInsets.all(Insets.sm),
@@ -185,37 +221,17 @@ class CenterView extends GetView<CenterController> {
           ),
           child: ListTile(
             onTap: () {
-              Get.toNamed('/center/detail', arguments: center);
+              Get.toNamed('/institution/detail', arguments: institution);
             },
-            leading: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Material(
-                  elevation: Sizes.xxs,
-                  shape: CircleBorder(),
-                  child: Image(
-                    height: Sizes.xl,
-                    image: AssetImage(
-                      'assets/sido/${Sido.getSidoEngName(center.sido)}.png',
-                    ),
-                  ),
-                ),
-                SizedBox(height: 8.0),
-                Text(
-                  Sido.getSidoShortName(center.sido),
-                  style: TextStyle(fontSize: Sizes.xs),
-                ),
-              ],
-            ),
             title: Text(
-              center.centerName,
+              institution.orgnm,
               style: TextStyle(fontSize: Sizes.sm),
             ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(center.address),
-                Text(center.facilityName),
+                Text(institution.orgZipaddr.split(' ').sublist(2).join(' ')),
+                Text(institution.orgTlno),
               ],
             ),
           ),

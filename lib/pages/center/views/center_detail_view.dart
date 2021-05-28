@@ -12,7 +12,7 @@ class CenterDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('접종센터 상세정보'),
+        title: Text('코로나 19 예방접종 기관'),
         centerTitle: true,
       ),
       body: Center(

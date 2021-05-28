@@ -110,4 +110,68 @@ class Sido {
 
     return sidoShortName;
   }
+
+  static String getSidoCode(String sidoName) {
+    String sidoCode = '';
+    switch (sidoName) {
+      case '전국':
+        sidoCode = '';
+        break;
+      case '서울특별시':
+        sidoCode = '11';
+        break;
+      case '부산광역시':
+        sidoCode = '26';
+        break;
+      case '대구광역시':
+        sidoCode = '27';
+        break;
+      case '인천광역시':
+        sidoCode = '28';
+        break;
+      case '광주광역시':
+        sidoCode = '29';
+        break;
+      case '대전광역시':
+        sidoCode = '30';
+        break;
+      case '울산광역시':
+        sidoCode = '31';
+        break;
+      case '세종특별자치시':
+        sidoCode = '36';
+        break;
+      case '경기도':
+        sidoCode = '41';
+        break;
+      case '강원도':
+        sidoCode = '42';
+        break;
+      case '충청북도':
+        sidoCode = '43';
+        break;
+      case '충청남도':
+        sidoCode = '44';
+        break;
+      case '전라북도':
+        sidoCode = '45';
+        break;
+      case '전라남도':
+        sidoCode = '46';
+        break;
+      case '경상북도':
+        sidoCode = '47';
+        break;
+      case '경상남도':
+        sidoCode = '48';
+        break;
+      case '제주특별자치도':
+        sidoCode = '50';
+        break;
+      case '기타':
+        sidoCode = '';
+    }
+
+    return sidoCode;
+  }
 }
