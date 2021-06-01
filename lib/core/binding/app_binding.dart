@@ -12,17 +12,21 @@ import 'package:covid_vaccine/core/models/entity/center_model.dart';
 import 'package:covid_vaccine/core/models/entity/institution_model.dart';
 import 'package:covid_vaccine/core/models/entity/institution_sigugun_model.dart';
 import 'package:covid_vaccine/core/models/entity/vaccination_model.dart';
+import 'package:covid_vaccine/core/shared/ad/ad_manager.dart';
 import 'package:covid_vaccine/pages/app/controller/app_controller.dart';
 import 'package:covid_vaccine/pages/center/controller/center_controller.dart';
 import 'package:covid_vaccine/pages/center/controller/institution_controller.dart';
 import 'package:covid_vaccine/pages/information/controller/information_controller.dart';
 import 'package:covid_vaccine/pages/side_effect/controller/side_effect_controller.dart';
 import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class AppBinding extends Bindings {
   @override
   void dependencies() {
+    Get.lazyPut(() => AdManager(isRelease: kReleaseMode));
+
     Get.lazyPut(() => AppController());
 
     Get.lazyPut<ApiProvider<VaccinationModel>>(() => VaccinationApiProvider());

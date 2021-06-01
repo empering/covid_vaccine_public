@@ -12,6 +12,8 @@ dependencies:
 
   get: ^4.1.4
 
+  google_mobile_ads: ^0.13.0
+
   intl:
   freezed_annotation:
 

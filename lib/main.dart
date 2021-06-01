@@ -4,10 +4,12 @@ import 'package:covid_vaccine/routes/app_pages.dart';
 import 'package:covid_vaccine/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  MobileAds.instance.initialize();
   await AppNotification.initialize();
 
   runApp(MyApp());

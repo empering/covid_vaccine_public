@@ -2,6 +2,7 @@ import 'package:covid_vaccine/core/models/entity/institution_model.dart';
 import 'package:covid_vaccine/pages/center/controller/institution_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:covid_vaccine/ui/widget/app_text.dart';
@@ -202,9 +203,13 @@ class InstitutionView extends StatelessWidget {
     }
 
     return ListView.builder(
-      itemCount: data.length,
+      itemCount: data.length + (data.length ~/ 5) + 1,
       itemBuilder: (context, index) {
-        final institution = data[index];
+        if (index > 0 && (index + 1) % 5 == 0) {
+          return AppBannerAd();
+        }
+
+        final institution = data[_getIndex(index)];
         return Container(
           padding: const EdgeInsets.symmetric(vertical: Insets.sm),
           margin: const EdgeInsets.all(Insets.sm),
@@ -238,5 +243,14 @@ class InstitutionView extends StatelessWidget {
         );
       },
     );
+  }
+
+  _getIndex(int index) {
+    var calcIndex = index + 1;
+    if (index < 5) {
+      return index;
+    } else {
+      return index - calcIndex ~/ 5;
+    }
   }
 }

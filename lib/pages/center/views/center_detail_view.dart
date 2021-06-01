@@ -2,6 +2,7 @@ import 'package:covid_vaccine/core/models/entity/center_model.dart';
 import 'package:covid_vaccine/core/models/enum/sido.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,12 +27,21 @@ class CenterDetailView extends StatelessWidget {
             _buildLocationInfo(),
             Divider(
               color: Colors.transparent,
-              height: Insets.md,
+              height: Insets.sm,
             ),
-            _buildMap(),
+            Expanded(
+              child: _buildMap(),
+            ),
           ],
         ),
       ),
+      persistentFooterButtons: [
+        Container(
+          width: MediaQuery.of(context).copyWith().size.width,
+          child: AppBannerAd(),
+          color: Colors.white,
+        )
+      ],
     );
   }
 
@@ -110,7 +120,7 @@ class CenterDetailView extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 200,
+          height: 150,
           child: Image(
             image: AssetImage(
               'assets/map.png',

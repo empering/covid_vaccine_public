@@ -3,6 +3,7 @@ import 'package:covid_vaccine/core/models/enum/sido.dart';
 import 'package:covid_vaccine/pages/center/controller/center_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:covid_vaccine/ui/widget/app_buttons.dart';
 import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:covid_vaccine/ui/widget/app_text.dart';
@@ -166,9 +167,13 @@ class CenterView extends GetView<CenterController> {
     }
 
     return ListView.builder(
-      itemCount: data.length,
+      itemCount: data.length + (data.length ~/ 5) + 1,
       itemBuilder: (context, index) {
-        final center = data[index];
+        if (index > 0 && (index + 1) % 5 == 0) {
+          return AppBannerAd();
+        }
+
+        final center = data[_getIndex(index)];
         return Container(
           padding: const EdgeInsets.symmetric(vertical: Insets.sm),
           margin: const EdgeInsets.all(Insets.sm),
@@ -222,5 +227,14 @@ class CenterView extends GetView<CenterController> {
         );
       },
     );
+  }
+
+  _getIndex(int index) {
+    var calcIndex = index + 1;
+    if (index < 5) {
+      return index;
+    } else {
+      return index - calcIndex ~/ 5;
+    }
   }
 }

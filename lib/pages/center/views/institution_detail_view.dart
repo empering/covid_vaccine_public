@@ -1,6 +1,7 @@
 import 'package:covid_vaccine/core/models/entity/institution_model.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,6 +32,13 @@ class InstitutionDetailView extends StatelessWidget {
           ],
         ),
       ),
+      persistentFooterButtons: [
+        Container(
+          width: MediaQuery.of(context).copyWith().size.width,
+          child: AppBannerAd(),
+          color: Colors.white,
+        )
+      ],
     );
   }
 

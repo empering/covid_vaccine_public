@@ -5,6 +5,7 @@ import 'package:covid_vaccine/pages/side_effect/views/side_effect_view.dart';
 import 'package:covid_vaccine/pages/vaccination/views/vaccination_view.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
+import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:covid_vaccine/ui/widget/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,7 +42,18 @@ class _AppViewState extends State<AppView> {
         title: Text(pagesTitle[pageIndex]),
         centerTitle: true,
       ),
-      body: pages[pageIndex],
+      body: Column(
+        children: [
+          Expanded(child: pages[pageIndex]),
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInToLinear,
+            alignment: Alignment.center,
+            child: pageIndex >= 2 ? AppBannerAd() : Container(),
+            color: Colors.white,
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.light,
         showUnselectedLabels: true,
