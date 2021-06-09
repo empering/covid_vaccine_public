@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 void main() async {
   await mainCommon();
 
-  Get.put(SettingService(StoreType.ONE_STORE));
+  await Get.putAsync(() => SettingService(StoreType.ONE_STORE).init());
 
   runApp(MyApp());
 }
