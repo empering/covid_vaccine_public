@@ -32,6 +32,17 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+    flavorDimensions "build-type"
+
+    productFlavors {
+        onestore {
+            dimension "build-type"
+        }
+        playstore {
+            dimension "build-type"
+        }
+    }
+
     defaultConfig {
         applicationId "kr.co.azzu.covid_vaccine"
         minSdkVersion 24

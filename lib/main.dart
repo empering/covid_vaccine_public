@@ -6,16 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-void main() async {
+enum StoreType {
+  PLAY_STORE,
+  ONE_STORE,
+}
+
+Future<void> mainCommon() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  MobileAds.instance.initialize();
+  await MobileAds.instance.initialize();
   await AppNotification.initialize();
+}
 
+void main() async {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  MyApp();
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

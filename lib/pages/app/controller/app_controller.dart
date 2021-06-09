@@ -1,4 +1,6 @@
+import 'package:covid_vaccine/core/shared/config/setting_service.dart';
 import 'package:covid_vaccine/core/shared/notification/app_notification.dart';
+import 'package:covid_vaccine/main.dart';
 import 'package:get/get.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,6 +9,10 @@ class AppController extends GetxController {
   var appVersion = ''.obs;
   var appBuildNumber = ''.obs;
   var isNotification = false.obs;
+
+  final SettingService settingService;
+
+  AppController({required this.settingService});
 
   @override
   void onInit() async {
@@ -31,7 +37,10 @@ class AppController extends GetxController {
   }
 
   goMarket() async {
-    await launch(
-        'https://play.google.com/store/apps/details?id=kr.co.azzu.covid_vaccine&dummy=$appBuildNumber');
+    var url = settingService.storeType == StoreType.ONE_STORE
+        ? 'onestore://common/product/0000756029'
+        : 'market://details?id=kr.co.azzu.covid_vaccine';
+
+    await launch(url);
   }
 }

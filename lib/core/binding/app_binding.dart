@@ -27,7 +27,7 @@ class AppBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(() => AdManager(isRelease: kReleaseMode));
 
-    Get.lazyPut(() => AppController());
+    Get.lazyPut(() => AppController(settingService: Get.find()));
 
     Get.lazyPut<ApiProvider<VaccinationModel>>(() => VaccinationApiProvider());
     Get.lazyPut<AppRepository<VaccinationModel>>(
