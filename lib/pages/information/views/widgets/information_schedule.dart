@@ -401,40 +401,14 @@ class InformationSchedule extends StatelessWidget {
         TableRow(
           children: [
             AppTableCell(
-              text: '2021.05.06. ~ 06.03.',
-              style: TextStyle(fontWeight: FontWeight.bold),
-              cellColor: Colors.black45,
-              isFirstCell: true,
-            ),
-            TableCell(
-              child: _schduleCell('70~74세 (1947~1951년),\n만성호흡기장애인\n'),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            AppTableCell(
-              text: '2021.05.10. ~ 06.03.',
-              style: TextStyle(fontWeight: FontWeight.bold),
-              cellColor: Colors.black45,
-              isFirstCell: true,
-            ),
-            TableCell(
-              child: _schduleCell('\n65~69세 (1952~1956년)\n'),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            AppTableCell(
-              text: '2021.05.13. ~ 06.03.',
+              text: '2021.06.15. ~ 06.26.',
               style: TextStyle(fontWeight: FontWeight.bold),
               cellColor: Colors.black45,
               isFirstCell: true,
             ),
             TableCell(
               child: _schduleCell(
-                  '60~64세 (1957~1961년)\n어린이집/유치원/초등1,2교사등\n조기접종 대상자 중 미접종자'),
+                  '예약이 모두 마감되었습니다.\n6월 말 ~ 7월 초 추가 예약 및 접종 예정입니다.'),
             ),
           ],
         ),
