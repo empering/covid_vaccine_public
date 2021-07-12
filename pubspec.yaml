@@ -1,7 +1,7 @@
 name: covid_vaccine
 description: 안전 백신 정보 Plus - 예방접종 정보
 publish_to: 'none'
-version: 1.0.3+4
+version: 1.0.4+5
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
