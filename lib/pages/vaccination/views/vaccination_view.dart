@@ -1,4 +1,5 @@
 import 'package:covid_vaccine/core/models/enum/sido.dart';
+import 'package:covid_vaccine/pages/app/controller/app_controller.dart';
 import 'package:covid_vaccine/pages/vaccination/controllers/vaccination_controller.dart';
 import 'package:covid_vaccine/ui/theme/app_colors.dart';
 import 'package:covid_vaccine/ui/theme/app_styles.dart';
@@ -86,6 +87,16 @@ class VaccinationView extends GetView<VaccinationController> {
                 size: Sizes.xs,
                 onPressed: () {
                   Get.toNamed('/vaccination/sido');
+                },
+              ),
+              AppOutlinedButton(
+                label: '사전예약정보',
+                icon: FontAwesomeIcons.infoCircle,
+                size: Sizes.xs,
+                backgroundColor: AppColors.accent,
+                onPressed: () {
+                  var appController = Get.find<AppController>();
+                  appController.pageIndex.value = 2;
                 },
               ),
               // AppOutlinedButton(

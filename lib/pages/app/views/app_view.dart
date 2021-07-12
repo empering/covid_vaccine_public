@@ -39,29 +39,30 @@ class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(pagesTitle[pageIndex]),
+        title: Obx(() => Text(pagesTitle[controller.pageIndex.value])),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Expanded(child: pages[pageIndex]),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeInToLinear,
-            alignment: Alignment.center,
-            child: pageIndex >= 2 ? AppBannerAd() : Container(),
-            color: Colors.white,
-          ),
-        ],
+      body: Obx(
+        () => Column(
+          children: [
+            Expanded(child: pages[controller.pageIndex.value]),
+            AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeInToLinear,
+              alignment: Alignment.center,
+              child:
+                  controller.pageIndex.value >= 2 ? AppBannerAd() : Container(),
+              color: Colors.white,
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.light,
         showUnselectedLabels: true,
-        currentIndex: pageIndex,
+        currentIndex: controller.pageIndex.value,
         onTap: (index) {
-          setState(() {
-            pageIndex = index;
-          });
+          controller.pageIndex.value = index;
         },
         items: [
           BottomNavigationBarItem(

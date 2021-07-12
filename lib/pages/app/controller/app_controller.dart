@@ -12,6 +12,7 @@ class AppController extends GetxController {
   var appVersion = ''.obs;
   var appBuildNumber = ''.obs;
   var isNotification = false.obs;
+  var pageIndex = 0.obs;
 
   final SettingService settingService;
 
