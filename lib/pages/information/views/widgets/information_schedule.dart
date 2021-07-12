@@ -106,7 +106,7 @@ class InformationSchedule extends StatelessWidget {
             return ListTile(
               title: AppTextWithIcon(
                 content: '예방접종 사전예약 기간',
-                icon: FontAwesomeIcons.solidQuestionCircle,
+                icon: FontAwesomeIcons.infoCircle,
                 textColor: AppColors.accent,
               ),
             );
@@ -129,7 +129,57 @@ class InformationSchedule extends StatelessWidget {
                     },
                   ),
                 ),
-                _buildSchduleTable(),
+                //60~74세
+                AppTextWithIcon(
+                  content: '60세~74세 고령층 사전예약 후 미접종자',
+                  icon: FontAwesomeIcons.infoCircle,
+                  textColor: AppColors.accent.withOpacity(0.8),
+                  textSize: Sizes.sm,
+                ),
+                AppTextWithIcon(
+                  content: '1947.1.1~1961.12.31 출생',
+                  icon: FontAwesomeIcons.angleRight,
+                  textColor: AppColors.primary.withOpacity(0.8),
+                  textSize: Sizes.sm,
+                  padding: EdgeInsets.only(left: Insets.md, top: Insets.sm),
+                ),
+                AppTextWithIcon(
+                  content: '예약기간 : 7.12(월) ~ 7.17(토)',
+                  icon: FontAwesomeIcons.angleRight,
+                  textColor: AppColors.primary.withOpacity(0.8),
+                  textSize: Sizes.sm,
+                  padding: EdgeInsets.only(left: Insets.md, top: Insets.sm),
+                ),
+                AppTextWithIcon(
+                  content: '접종기간 : 7.26(월) ~ 8.7(토)',
+                  icon: FontAwesomeIcons.angleRight,
+                  textColor: AppColors.primary.withOpacity(0.8),
+                  textSize: Sizes.sm,
+                  padding: EdgeInsets.only(left: Insets.md, top: Insets.sm),
+                ),
+                AppTextWithIcon(
+                  content:
+                      '당초 5.27~6.19 AZ 접종 대상인 고령층으로 사전예약을 완료했으나, 건강상 이유 등 다양한 사유료 미접종한 자',
+                  icon: FontAwesomeIcons.exclamationTriangle,
+                  textColor: Colors.black54,
+                  textSize: Sizes.xs,
+                  padding: EdgeInsets.only(left: Insets.md, top: Insets.sm),
+                ),
+                // 55~59세
+                AppTextWithIcon(
+                  content: '55세~59세 사전예약',
+                  icon: FontAwesomeIcons.infoCircle,
+                  textColor: AppColors.accent.withOpacity(0.8),
+                  textSize: Sizes.sm,
+                ),
+                AppTextWithIcon(
+                  content:
+                      '7.12 0시부터 실시한 사전예약이 7.12 15:30에 마감되었습니다.\n7.19부터 추가예약 실시 예정입니다.',
+                  icon: FontAwesomeIcons.exclamationTriangle,
+                  textColor: Colors.black54,
+                  textSize: Sizes.xs,
+                  padding: EdgeInsets.only(left: Insets.md, top: Insets.sm),
+                ),
               ],
             ),
           ),
@@ -387,28 +437,28 @@ class InformationSchedule extends StatelessWidget {
         TableRow(
           children: [
             AppTableCell(
-              text: '예약기간',
-              style: TextStyle(fontWeight: FontWeight.bold),
-              cellColor: Colors.black54,
-            ),
-            AppTableCell(
               text: '대상자',
               style: TextStyle(fontWeight: FontWeight.bold),
               cellColor: AppColors.accent,
+            ),
+            AppTableCell(
+              text: '',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              cellColor: Colors.black54,
             ),
           ],
         ),
         TableRow(
           children: [
+            TableCell(
+              child: _schduleCell(
+                  '예약이 모두 마감되었습니다.\n6월 말 ~ 7월 초 추가 예약 및 접종 예정입니다.'),
+            ),
             AppTableCell(
               text: '2021.06.15. ~ 06.26.',
               style: TextStyle(fontWeight: FontWeight.bold),
               cellColor: Colors.black45,
               isFirstCell: true,
-            ),
-            TableCell(
-              child: _schduleCell(
-                  '예약이 모두 마감되었습니다.\n6월 말 ~ 7월 초 추가 예약 및 접종 예정입니다.'),
             ),
           ],
         ),

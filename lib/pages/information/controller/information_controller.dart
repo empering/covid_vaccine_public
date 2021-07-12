@@ -13,14 +13,14 @@ enum VaccineInformationType {
 }
 
 class InformationController extends GetxController {
-  var infoType = InformationType.VACCINE.obs;
+  var infoType = InformationType.SCHEDULE.obs;
   var panelIndex = 0.obs;
 
   @override
   void onInit() {
     super.onInit();
 
-    panelIndex.value = -1;
+    panelIndex.value = 2;
 
     ever(infoType, (_) {
       panelIndex.value = -1;

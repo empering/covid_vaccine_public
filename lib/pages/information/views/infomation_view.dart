@@ -29,6 +29,17 @@ class InformationView extends StatelessWidget {
                   spacing: Insets.sm,
                   children: [
                     AppOutlinedButton(
+                      label: '일정',
+                      icon: FontAwesomeIcons.calendarCheck,
+                      size: Sizes.xs,
+                      backgroundColor: infoType == InformationType.SCHEDULE
+                          ? AppColors.primary
+                          : AppColors.accent.withOpacity(0.75),
+                      onPressed: () {
+                        infoType.value = InformationType.SCHEDULE;
+                      },
+                    ),
+                    AppOutlinedButton(
                       label: '백신',
                       icon: FontAwesomeIcons.infoCircle,
                       size: Sizes.xs,
@@ -48,17 +59,6 @@ class InformationView extends StatelessWidget {
                           : AppColors.accent.withOpacity(0.75),
                       onPressed: () {
                         infoType.value = InformationType.VACCINATION;
-                      },
-                    ),
-                    AppOutlinedButton(
-                      label: '일정',
-                      icon: FontAwesomeIcons.calendarCheck,
-                      size: Sizes.xs,
-                      backgroundColor: infoType == InformationType.SCHEDULE
-                          ? AppColors.primary
-                          : AppColors.accent.withOpacity(0.75),
-                      onPressed: () {
-                        infoType.value = InformationType.SCHEDULE;
                       },
                     ),
                   ],
@@ -88,8 +88,11 @@ class InformationView extends StatelessWidget {
               }
 
               return Expanded(
-                child: ListView(
-                  children: [listViewChild],
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: ListView(
+                    children: [listViewChild],
+                  ),
                 ),
               );
             },
