@@ -46,6 +46,9 @@ class _AppBannerAdState extends State<AppBannerAd> {
             alignment: Alignment.center,
             color: Colors.white,
           )
-        : Container();
+        : Container(
+            height: 72.0,
+            child: Center(child: CircularProgressIndicator()),
+          );
   }
 }
