@@ -5,6 +5,7 @@ import 'package:covid_vaccine/ui/theme/app_styles.dart';
 import 'package:covid_vaccine/ui/widget/app_banner_ad.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kakaomap_webview/kakaomap_webview.dart';
 
 class CenterDetailView extends StatelessWidget {
   final VaccinationCenter center = Get.arguments;
@@ -37,7 +38,7 @@ class CenterDetailView extends StatelessWidget {
       ),
       persistentFooterButtons: [
         Container(
-          width: MediaQuery.of(context).copyWith().size.width,
+          width: Get.width,
           child: AppBannerAd(),
           color: Colors.white,
         )
@@ -82,12 +83,12 @@ class CenterDetailView extends StatelessWidget {
             '${center.sido} ${center.sigungu}',
             style: TextStyle(fontSize: Sizes.sm),
           ),
-        ),
-        ListTile(
-          leading: _buildLocationLeading('상세주소'),
-          title: Text(
+          subtitle: Text(
             center.getDetailAddress(),
-            style: TextStyle(fontSize: Sizes.sm),
+            style: TextStyle(
+              fontSize: Sizes.sm,
+              color: AppColors.primary,
+            ),
           ),
         ),
         ListTile(
@@ -96,12 +97,12 @@ class CenterDetailView extends StatelessWidget {
             center.facilityName,
             style: TextStyle(fontSize: Sizes.sm),
           ),
-        ),
-        ListTile(
-          leading: _buildLocationLeading('운영기관'),
-          title: Text(
+          subtitle: Text(
             center.org,
-            style: TextStyle(fontSize: Sizes.sm),
+            style: TextStyle(
+              fontSize: Sizes.sm,
+              color: AppColors.primary,
+            ),
           ),
         ),
       ],
@@ -117,18 +118,14 @@ class CenterDetailView extends StatelessWidget {
   }
 
   _buildMap() {
-    return Column(
-      children: [
-        Container(
-          height: 150,
-          child: Image(
-            image: AssetImage(
-              'assets/map.png',
-            ),
-          ),
-        ),
-        Text('지도정보 준비중입니다.'),
-      ],
+    return KakaoMapView(
+      width: Get.width,
+      height: 400,
+      kakaoMapKey: 'abd534ca6fd51998ec559691c9974663',
+      lat: double.parse(center.lat),
+      lng: double.parse(center.lng),
+      showMapTypeControl: true,
+      showZoomControl: true,
     );
   }
 }

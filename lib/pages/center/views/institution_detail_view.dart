@@ -208,20 +208,4 @@ class InstitutionDetailView extends StatelessWidget {
       child: Text('$text'),
     );
   }
-
-  _buildMap() {
-    return Column(
-      children: [
-        Container(
-          height: 200,
-          child: Image(
-            image: AssetImage(
-              'assets/map.png',
-            ),
-          ),
-        ),
-        Text('지도정보 준비중입니다.'),
-      ],
-    );
-  }
 }
